@@ -1,0 +1,208 @@
+[gd_scene load_steps=27 format=3 uid="uid://bpatghakn5mtc"]
+
+[ext_resource type="Script" path="res://scenes/card/card_ui/shadow_card_ui.gd" id="1_o7c3u"]
+[ext_resource type="Script" path="res://scenes/card/drop_point.gd" id="2_24c65"]
+[ext_resource type="Texture2D" uid="uid://bhle7w3206log" path="res://art/card_frame.png" id="2_sxpnl"]
+[ext_resource type="Script" path="res://scenes/card/state_machine/card_state_machine.gd" id="3_47fw0"]
+[ext_resource type="Texture2D" uid="uid://dhu7e5i54ebmb" path="res://art/card_frame_ingredient.png" id="3_m4upx"]
+[ext_resource type="Script" path="res://scenes/card/state_machine/card_base_state.gd" id="4_o2ko4"]
+[ext_resource type="Script" path="res://scenes/card/effects/effect_handler.gd" id="5_8f0mu"]
+[ext_resource type="Script" path="res://scenes/card/effects/discard_card_effect.gd" id="6_j1vh2"]
+[ext_resource type="PackedScene" uid="uid://dm2c3rdbvktu3" path="res://scenes/components/random_audio_stream_player.tscn" id="9_xs2ry"]
+[ext_resource type="AudioStream" uid="uid://u5ardtbh0g17" path="res://audio/cards/card-slide-1.ogg" id="10_74q7w"]
+[ext_resource type="AudioStream" uid="uid://dps82k441ru6u" path="res://audio/cards/card-slide-2.ogg" id="11_1uqn7"]
+[ext_resource type="AudioStream" uid="uid://cf57uxryn0onl" path="res://audio/cards/card-slide-3.ogg" id="12_b4wm5"]
+[ext_resource type="AudioStream" uid="uid://dxx42hsjivqp1" path="res://audio/cards/card-slide-4.ogg" id="13_xxikd"]
+[ext_resource type="AudioStream" uid="uid://2pp64mvht51v" path="res://audio/cards/card-slide-5.ogg" id="14_sff7l"]
+[ext_resource type="AudioStream" uid="uid://fveptbjvg4f0" path="res://audio/cards/card-slide-6.ogg" id="15_f7uey"]
+[ext_resource type="AudioStream" uid="uid://xrbkpy8oes5o" path="res://audio/cards/card-slide-7.ogg" id="16_nsq7g"]
+[ext_resource type="AudioStream" uid="uid://0ayjptuiemme" path="res://audio/cards/card-slide-8.ogg" id="17_j0ufj"]
+
+[sub_resource type="Shader" id="Shader_uh887"]
+code = "shader_type canvas_item;
+
+uniform sampler2D dissolve_texture : source_color;
+uniform float dissolve_value : hint_range(0,1);
+uniform float burn_size: hint_range(0.0, 1.0, 0.01);
+uniform vec4 burn_color: source_color;
+
+void fragment(){
+    vec4 main_texture = texture(TEXTURE, UV);
+    vec4 noise_texture = texture(dissolve_texture, UV);
+	
+	// This is needed to avoid keeping a small burn_color dot with dissolve being 0 or 1
+	// is there another way to do it?
+	float burn_size_step = burn_size * step(0.001, dissolve_value) * step(dissolve_value, 0.999);
+	float threshold = smoothstep(noise_texture.x-burn_size_step, noise_texture.x, dissolve_value);
+	float border = smoothstep(noise_texture.x, noise_texture.x + burn_size_step, dissolve_value);
+	
+	COLOR.a *= threshold;
+	COLOR.rgb = mix(burn_color.rgb, main_texture.rgb, border);
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_swtec"]
+seed = -15
+frequency = 0.0021
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_aj7xu"]
+noise = SubResource("FastNoiseLite_swtec")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynqr8"]
+shader = SubResource("Shader_uh887")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03
+shader_parameter/burn_color = Color(0.752941, 0.364706, 0.117647, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_aj7xu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiwjv"]
+bg_color = Color(0, 0.482353, 0.352941, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sudgd"]
+texture = ExtResource("2_sxpnl")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 35, 30, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73wiw"]
+texture = ExtResource("3_m4upx")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 1.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(2.72786, 58.6743, 24.2721, 7.32571)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00xdh"]
+size = Vector2(25, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avokt"]
+size = Vector2(25, 30)
+
+[node name="shadow_card_ui" type="Control"]
+material = SubResource("ShaderMaterial_ynqr8")
+custom_minimum_size = Vector2(30, 35)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -226.0
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(15, 17)
+script = ExtResource("1_o7c3u")
+
+[node name="Shadow" type="Panel" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0.101961)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qiwjv")
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_sudgd")
+
+[node name="NamePlate" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 25.0
+offset_right = 27.0
+offset_bottom = 33.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_73wiw")
+
+[node name="Name" type="Label" parent="Panel/NamePlate"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 112.0
+offset_bottom = 15.0
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 12
+text = "Mandrake Root
+"
+
+[node name="Cost" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 17.0
+offset_right = 12.0
+offset_bottom = 34.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.2, 0.2)
+transform = Transform2D(0.2, 0, 0, 0.2, 0, 0)
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 20.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+visible = false
+position = Vector2(13, 15)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+shape = SubResource("RectangleShape2D_00xdh")
+
+[node name="DropPoint" type="Area2D" parent="." node_paths=PackedStringArray("card_ui")]
+visible = false
+position = Vector2(12.5, 15)
+collision_layer = 2
+script = ExtResource("2_24c65")
+card_ui = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPoint"]
+shape = SubResource("RectangleShape2D_avokt")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_47fw0")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine" node_paths=PackedStringArray("hover_audio_player")]
+script = ExtResource("4_o2ko4")
+hover_audio_player = NodePath("../../hover_audio_player")
+
+[node name="EffectHandler" type="Node" parent="."]
+script = ExtResource("5_8f0mu")
+
+[node name="DiscardCardEffect" type="Node" parent="EffectHandler"]
+script = ExtResource("6_j1vh2")
+
+[node name="effect_spawn_location" type="Marker2D" parent="."]
+position = Vector2(35, 18)
+
+[node name="hover_audio_player" parent="." instance=ExtResource("9_xs2ry")]
+bus = &"sfx"
+streams = Array[AudioStream]([ExtResource("10_74q7w"), ExtResource("11_1uqn7"), ExtResource("12_b4wm5"), ExtResource("13_xxikd"), ExtResource("14_sff7l"), ExtResource("15_f7uey"), ExtResource("16_nsq7g"), ExtResource("17_j0ufj")])

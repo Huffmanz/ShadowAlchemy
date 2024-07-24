@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://5ycqtxmmcahe"]
+
+[ext_resource type="Texture2D" uid="uid://dc3mu4cbj1ahl" path="res://art/Philosophers Stone.png" id="1_27tkn"]
+[ext_resource type="Script" path="res://resources/card.gd" id="2_ou6wu"]
+
+[resource]
+script = ExtResource("2_ou6wu")
+id = "Philosophers Stone"
+type = 0
+cost = 1
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([])
+icon = ExtResource("1_27tkn")
+tooltip_text = "A fragment of the legendary stone that can transmute base metals into gold and grant immortality."
+effect_text = "Basic ingredient for multiple elixirs."

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyhxj03rgu530"]
+
+[ext_resource type="Script" path="res://scenes/match/match.gd" id="1_131e3"]
+[ext_resource type="Script" path="res://scenes/ui/match_ui.gd" id="2_0uui6"]
+[ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="2_1c7kh"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="2_72lv3"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_de1da"]
+[ext_resource type="Resource" uid="uid://cdkspj4cb4gal" path="res://resources/player/player_stats.tres" id="2_yc7qe"]
+[ext_resource type="Theme" uid="uid://brjii8ffeofm5" path="res://art/theme/main_theme.tres" id="4_1npnt"]
+
+[node name="MatchScene" type="Node2D" node_paths=PackedStringArray("player_handler")]
+script = ExtResource("1_131e3")
+char_stats = ExtResource("2_yc7qe")
+player_handler = NodePath("PlayerHandler")
+
+[node name="PlayerHandler" type="Node2D" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("2_1c7kh")
+hand = NodePath("../MatchUI/Hand")
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("2_72lv3")
+
+[node name="MatchUI" type="CanvasLayer" parent="."]
+script = ExtResource("2_0uui6")
+
+[node name="Hand" type="HBoxContainer" parent="MatchUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("2_de1da")
+
+[node name="EndTurnButton" type="Button" parent="MatchUI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -18.0
+offset_right = -5.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("4_1npnt")
+text = "End Turn"

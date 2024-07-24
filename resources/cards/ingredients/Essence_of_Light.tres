@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cakmxb1aj5upl"]
+
+[ext_resource type="Texture2D" uid="uid://okmy57w6sjjo" path="res://art/Essence of Light.png" id="1_kffrq"]
+[ext_resource type="Script" path="res://resources/card.gd" id="2_gc8ap"]
+
+[resource]
+script = ExtResource("2_gc8ap")
+id = "Light Essence"
+type = 0
+cost = 1
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([])
+icon = ExtResource("1_kffrq")
+tooltip_text = "A radiant liquid distilled from pure sunlight, essential for creating powerful elixirs."
+effect_text = "Basic ingredient for multiple elixirs."

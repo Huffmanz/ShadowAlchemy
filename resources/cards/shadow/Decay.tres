@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://cdekii2llroim"]
+
+[ext_resource type="Script" path="res://resources/effects/discard_card_effect.gd" id="1_cg8ns"]
+[ext_resource type="Script" path="res://resources/card.gd" id="1_ofewo"]
+[ext_resource type="Texture2D" uid="uid://bsc30tiaeefd7" path="res://art/Decay.png" id="2_vaocy"]
+
+[sub_resource type="Resource" id="Resource_ykusr"]
+script = ExtResource("1_cg8ns")
+amount = 1
+description = "-1 Cards"
+
+[resource]
+script = ExtResource("1_ofewo")
+id = "Decay"
+type = 2
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_ykusr")])
+icon = ExtResource("2_vaocy")
+tooltip_text = "A creeping shadow that corrupts and weakens."
+effect_text = "Discard one Ingredient card from your hand."

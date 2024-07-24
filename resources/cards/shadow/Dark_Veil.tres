@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://cyv1tfkn8vgjo"]
+
+[ext_resource type="Texture2D" uid="uid://bl03kndrv1cjk" path="res://art/Dark Veil.png" id="1_6gb5t"]
+[ext_resource type="Script" path="res://resources/effects/skip_draw_phase.gd" id="1_nimc5"]
+[ext_resource type="Script" path="res://resources/card.gd" id="3_4r30m"]
+
+[sub_resource type="Resource" id="Resource_idw8h"]
+script = ExtResource("1_nimc5")
+amount = 1
+description = "-1 Draw Phase"
+
+[resource]
+script = ExtResource("3_4r30m")
+id = "Dark Veil"
+type = 2
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_idw8h")])
+icon = ExtResource("1_6gb5t")
+tooltip_text = "A shroud of darkness that obscures vision and thoughts."
+effect_text = "Skip your next Draw Phase."

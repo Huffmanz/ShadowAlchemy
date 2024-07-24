@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Elixer" load_steps=12 format=3 uid="uid://cnwwphbvlgeq4"]
+
+[ext_resource type="Script" path="res://resources/elixer.gd" id="1_5chu1"]
+[ext_resource type="Script" path="res://resources/effects/block_shadow_effect.gd" id="1_rx76s"]
+[ext_resource type="Script" path="res://resources/cost.gd" id="2_e4frm"]
+[ext_resource type="Texture2D" uid="uid://dvyes6jc7o3lv" path="res://art/Shadowbane Elixir.png" id="2_i8a78"]
+[ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="2_jia0y"]
+[ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="4_rqf47"]
+[ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="5_i00b7"]
+
+[sub_resource type="Resource" id="Resource_4w4br"]
+script = ExtResource("1_rx76s")
+amount = 1
+description = "Block next Shadow Card"
+
+[sub_resource type="Resource" id="Resource_bwtlw"]
+script = ExtResource("2_e4frm")
+card = ExtResource("2_jia0y")
+count = 1
+
+[sub_resource type="Resource" id="Resource_fs274"]
+script = ExtResource("2_e4frm")
+card = ExtResource("4_rqf47")
+count = 1
+
+[sub_resource type="Resource" id="Resource_6xb6d"]
+script = ExtResource("2_e4frm")
+card = ExtResource("5_i00b7")
+count = 1
+
+[resource]
+script = ExtResource("1_5chu1")
+ingredients = Array[ExtResource("2_e4frm")]([SubResource("Resource_bwtlw"), SubResource("Resource_fs274"), SubResource("Resource_6xb6d")])
+id = "Shadowbane"
+type = 1
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_4w4br")])
+icon = ExtResource("2_i8a78")
+tooltip_text = "Block effect of next shadow card"
+effect_text = "Remove 1 Shadow card from play immediately."

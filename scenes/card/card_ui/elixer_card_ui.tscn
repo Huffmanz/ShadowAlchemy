@@ -1,0 +1,176 @@
+[gd_scene load_steps=24 format=3 uid="uid://2uxs3poqumjd"]
+
+[ext_resource type="Shader" path="res://shaders/dissolve.gdshader" id="1_05is8"]
+[ext_resource type="Theme" uid="uid://brjii8ffeofm5" path="res://art/theme/main_theme.tres" id="1_55wx5"]
+[ext_resource type="Script" path="res://scenes/card/state_machine/card_state_machine.gd" id="1_a1dtm"]
+[ext_resource type="Script" path="res://scenes/card/state_machine/card_base_state.gd" id="2_1bv5x"]
+[ext_resource type="Script" path="res://scenes/card/card_ui/elixer_card_ui.gd" id="2_omfcl"]
+[ext_resource type="Script" path="res://scenes/card/drop_point.gd" id="5_uyo6t"]
+[ext_resource type="Texture2D" uid="uid://bhle7w3206log" path="res://art/card_frame.png" id="6_r0d6f"]
+[ext_resource type="PackedScene" uid="uid://dm2c3rdbvktu3" path="res://scenes/components/random_audio_stream_player.tscn" id="8_bafo1"]
+[ext_resource type="AudioStream" uid="uid://u5ardtbh0g17" path="res://audio/cards/card-slide-1.ogg" id="9_w87yr"]
+[ext_resource type="AudioStream" uid="uid://dps82k441ru6u" path="res://audio/cards/card-slide-2.ogg" id="10_hmnft"]
+[ext_resource type="AudioStream" uid="uid://cf57uxryn0onl" path="res://audio/cards/card-slide-3.ogg" id="11_8mhg1"]
+[ext_resource type="AudioStream" uid="uid://dxx42hsjivqp1" path="res://audio/cards/card-slide-4.ogg" id="12_dr5d8"]
+[ext_resource type="AudioStream" uid="uid://2pp64mvht51v" path="res://audio/cards/card-slide-5.ogg" id="13_8suub"]
+[ext_resource type="AudioStream" uid="uid://fveptbjvg4f0" path="res://audio/cards/card-slide-6.ogg" id="14_gtrjm"]
+[ext_resource type="AudioStream" uid="uid://xrbkpy8oes5o" path="res://audio/cards/card-slide-7.ogg" id="15_dfi6h"]
+[ext_resource type="AudioStream" uid="uid://0ayjptuiemme" path="res://audio/cards/card-slide-8.ogg" id="16_sihtv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xqc0h"]
+seed = -15
+frequency = 0.0021
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pkbwm"]
+noise = SubResource("FastNoiseLite_xqc0h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3d1cn"]
+shader = ExtResource("1_05is8")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03
+shader_parameter/burn_color = Color(0.752941, 0.364706, 0.117647, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_pkbwm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2efe"]
+bg_color = Color(0, 0.482353, 0.352941, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t4b00"]
+texture = ExtResource("6_r0d6f")
+texture_margin_left = 3.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 70, 30, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_avabd"]
+size = Vector2(25, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66v07"]
+size = Vector2(25, 30)
+
+[node name="ElixerCardUI" type="Control"]
+material = SubResource("ShaderMaterial_3d1cn")
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -231.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(12.5, 15)
+theme = ExtResource("1_55wx5")
+script = ExtResource("2_omfcl")
+
+[node name="Shadow" type="Panel" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 0.270588)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2efe")
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t4b00")
+
+[node name="Name" type="Label" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 115.0
+offset_bottom = 18.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 12
+text = "Mandrake Root
+"
+
+[node name="Icon" type="TextureRect" parent="Panel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 23.0
+offset_bottom = 24.0
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = -14.0
+offset_top = 21.0
+offset_right = -14.0
+offset_bottom = 29.0
+theme_override_constants/separation = 3
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cost" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 17.0
+offset_right = 11.0
+offset_bottom = 34.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+visible = false
+position = Vector2(13, 15)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+shape = SubResource("RectangleShape2D_avabd")
+
+[node name="DropPoint" type="Area2D" parent="." node_paths=PackedStringArray("card_ui")]
+position = Vector2(15, 18)
+collision_layer = 2
+script = ExtResource("5_uyo6t")
+card_ui = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPoint"]
+shape = SubResource("RectangleShape2D_66v07")
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_a1dtm")
+initial_state = NodePath("CardBaseState")
+
+[node name="CardBaseState" type="Node" parent="CardStateMachine" node_paths=PackedStringArray("hover_audio_player")]
+script = ExtResource("2_1bv5x")
+hover_audio_player = NodePath("../../hover_audio_player")
+
+[node name="effect_spawn_location" type="Marker2D" parent="."]
+position = Vector2(15, 35)
+
+[node name="hover_audio_player" parent="." instance=ExtResource("8_bafo1")]
+bus = &"sfx"
+streams = Array[AudioStream]([ExtResource("9_w87yr"), ExtResource("10_hmnft"), ExtResource("11_8mhg1"), ExtResource("12_dr5d8"), ExtResource("13_8suub"), ExtResource("14_gtrjm"), ExtResource("15_dfi6h"), ExtResource("16_sihtv")])

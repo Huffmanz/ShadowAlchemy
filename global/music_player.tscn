@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dac3238t2b4tp"]
+
+[ext_resource type="Script" path="res://global/music_player.gd" id="1_63ase"]
+[ext_resource type="AudioStream" uid="uid://bg15xnof6280" path="res://audio/Pixel 4.ogg" id="1_mp74q"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_mp74q")
+volume_db = -20.0
+autoplay = true
+bus = &"music"
+script = ExtResource("1_63ase")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

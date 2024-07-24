@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://fccru1efvkft"]
+
+[ext_resource type="Texture2D" uid="uid://d11jpny4hue1a" path="res://art/mandrake.png" id="1_d8dxi"]
+[ext_resource type="Script" path="res://resources/card.gd" id="1_p67ju"]
+
+[resource]
+script = ExtResource("1_p67ju")
+id = "Mandrake Root"
+type = 0
+cost = 1
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([])
+icon = ExtResource("1_d8dxi")
+tooltip_text = "A mystical root known for its healing properties."
+effect_text = "Basic ingredient for multiple elixirs."

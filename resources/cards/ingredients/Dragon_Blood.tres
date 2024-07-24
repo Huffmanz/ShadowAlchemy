@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://0gx75nkbt6ku"]
+
+[ext_resource type="Texture2D" uid="uid://u1qtlhuli8s5" path="res://art/Dragon Blood.png" id="1_qaqam"]
+[ext_resource type="Script" path="res://resources/card.gd" id="1_r1xjw"]
+
+[resource]
+script = ExtResource("1_r1xjw")
+id = "Dragon's Blood"
+type = 0
+cost = 1
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([])
+icon = ExtResource("1_qaqam")
+tooltip_text = "A rare and powerful ingredient harvested from ancient dragons, used for its magical properties."
+effect_text = "Basic ingredient for multiple elixirs."

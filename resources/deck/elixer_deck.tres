@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=7 format=3 uid="uid://bb5sp3s83hj0p"]
+
+[ext_resource type="Script" path="res://resources/card_pile.gd" id="1_bec21"]
+[ext_resource type="Resource" uid="uid://cwg0wsn2nxudv" path="res://resources/cards/elixers/Transformation_Elixir.tres" id="1_oqayx"]
+[ext_resource type="Resource" uid="uid://ivskbe08xbec" path="res://resources/cards/elixers/Elixir_of_Speed.tres" id="1_s0c5a"]
+[ext_resource type="Resource" uid="uid://cj73fpas7l5t5" path="res://resources/cards/elixers/Healing_Elixir.tres" id="1_updp3"]
+[ext_resource type="Resource" uid="uid://d4j5jlainmuvr" path="res://resources/cards/elixers/Elixir_of_Fortune.tres" id="2_vwk6c"]
+[ext_resource type="Resource" uid="uid://cnwwphbvlgeq4" path="res://resources/cards/elixers/Shadowbane_Elixir.tres" id="3_e3od7"]
+
+[resource]
+script = ExtResource("1_bec21")
+cards = Array[Resource("res://resources/card.gd")]([ExtResource("1_oqayx"), ExtResource("3_e3od7"), ExtResource("1_updp3"), ExtResource("1_s0c5a"), ExtResource("2_vwk6c")])

@@ -1,0 +1,263 @@
+[gd_scene load_steps=13 format=3 uid="uid://3jxcjgl0uvck"]
+
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_tdc82"]
+[ext_resource type="Script" path="res://scenes/ui/turn_ui.gd" id="2_0cmxc"]
+[ext_resource type="PackedScene" uid="uid://ctaaaiye2e7ww" path="res://scenes/ui/sound_button.tscn" id="2_1ec4e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n3ph"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.470588)
+border_color = Color(0.309804, 0.560784, 0.729412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dckb"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.345098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_jyep4"]
+font_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_pvfeu"]
+font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2n3l"]
+font_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_n1exh"]
+font_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2crvu"]
+bg_color = Color(0.737255, 0, 0.12549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j16mi"]
+bg_color = Color(0.886275, 0, 0.160784, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lctjx"]
+bg_color = Color(1, 0.572549, 0.54902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.498039, 0.498039, 0.498039, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_tdc82")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -43.0
+offset_bottom = 144.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_6n3ph")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DeckPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dckb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DeckPanel"]
+layout_mode = 2
+
+[node name="DeckText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DeckPanel/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "DECK"
+label_settings = SubResource("LabelSettings_jyep4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeckCountLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/DeckPanel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "10/40"
+label_settings = SubResource("LabelSettings_pvfeu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ElixirPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dckb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ElixirPanel"]
+layout_mode = 2
+
+[node name="ElixirText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ElixirPanel/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "ELIXIRS"
+label_settings = SubResource("LabelSettings_x2n3l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ElixirCountLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ElixirPanel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "3/3"
+label_settings = SubResource("LabelSettings_n1exh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_1dckb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ManaPanel"]
+layout_mode = 2
+
+[node name="ManaText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ManaPanel/VBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "MANA"
+label_settings = SubResource("LabelSettings_x2n3l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ManaLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ManaPanel/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "3/3"
+label_settings = SubResource("LabelSettings_n1exh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DrawCardButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_1ec4e")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "DRAW"
+
+[node name="EndTurnButton" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_1ec4e")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_2crvu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j16mi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2crvu")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lctjx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2crvu")
+text = "END"
+
+[node name="TurnUI" type="CanvasLayer" parent="."]
+script = ExtResource("2_0cmxc")
+
+[node name="MarginContainer" type="MarginContainer" parent="TurnUI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -14.0
+offset_right = 106.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(100, 12.5)
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TurnUI/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[wave][center]Player Turn[/center][/wave]
+"
+scroll_active = false
+
+[node name="Timer" type="Timer" parent="TurnUI/MarginContainer"]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true

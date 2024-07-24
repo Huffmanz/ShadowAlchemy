@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://1ifsh4kruf55"]
+
+[sub_resource type="Shader" id="Shader_0liwe"]
+code = "shader_type canvas_item;
+
+uniform sampler2D dissolve_texture : source_color;
+uniform float dissolve_value : hint_range(0,1);
+uniform float burn_size: hint_range(0.0, 1.0, 0.01);
+uniform vec4 burn_color: source_color;
+
+void fragment(){
+    vec4 main_texture = texture(TEXTURE, UV);
+    vec4 noise_texture = texture(dissolve_texture, UV);
+	
+	// This is needed to avoid keeping a small burn_color dot with dissolve being 0 or 1
+	// is there another way to do it?
+	float burn_size_step = burn_size * step(0.001, dissolve_value) * step(dissolve_value, 0.999);
+	float threshold = smoothstep(noise_texture.x-burn_size_step, noise_texture.x, dissolve_value);
+	float border = smoothstep(noise_texture.x, noise_texture.x + burn_size_step, dissolve_value);
+	
+	COLOR.a *= threshold;
+	COLOR.rgb = mix(burn_color.rgb, main_texture.rgb, border);
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dcobf"]
+seed = -15
+frequency = 0.0021
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ewp5h"]
+noise = SubResource("FastNoiseLite_dcobf")
+
+[resource]
+shader = SubResource("Shader_0liwe")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03
+shader_parameter/burn_color = Color(0.752941, 0.364706, 0.117647, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_ewp5h")

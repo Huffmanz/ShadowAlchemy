@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxsvo6rtj6yf"]
+
+[ext_resource type="Texture2D" uid="uid://dnnu81niddgag" path="res://art/Nightmare.png" id="1_aqcc7"]
+
+[node name="EffectStatusUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_aqcc7")
+stretch_mode = 5
+
+[node name="CountText" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 19.0
+offset_bottom = 20.0
+scale = Vector2(0.5, 0.5)
+text = "2
+"

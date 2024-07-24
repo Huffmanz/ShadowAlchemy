@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="Elixer" load_steps=16 format=3 uid="uid://d4j5jlainmuvr"]
+
+[ext_resource type="Script" path="res://resources/effects/draw_card_effect.gd" id="1_ys6ji"]
+[ext_resource type="Script" path="res://resources/effects/gain_mana_effect.gd" id="2_o5k5h"]
+[ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="2_vim8x"]
+[ext_resource type="Script" path="res://resources/cost.gd" id="3_5nxhg"]
+[ext_resource type="Texture2D" uid="uid://x8kqrnyvubes" path="res://art/Elixir of Fortune.png" id="3_nkhwa"]
+[ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="4_xhwah"]
+[ext_resource type="Script" path="res://resources/elixer.gd" id="5_t05ib"]
+[ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="7_iebh2"]
+
+[sub_resource type="Resource" id="Resource_shvtx"]
+script = ExtResource("1_ys6ji")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_w6sne"]
+script = ExtResource("1_ys6ji")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_21w24"]
+script = ExtResource("1_ys6ji")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_ucxpn"]
+script = ExtResource("2_o5k5h")
+amount = 1
+description = ""
+
+[sub_resource type="Resource" id="Resource_8ywle"]
+script = ExtResource("3_5nxhg")
+card = ExtResource("2_vim8x")
+count = 1
+
+[sub_resource type="Resource" id="Resource_017im"]
+script = ExtResource("3_5nxhg")
+card = ExtResource("4_xhwah")
+count = 1
+
+[sub_resource type="Resource" id="Resource_opyta"]
+script = ExtResource("3_5nxhg")
+card = ExtResource("7_iebh2")
+count = 1
+
+[resource]
+script = ExtResource("5_t05ib")
+ingredients = Array[ExtResource("3_5nxhg")]([SubResource("Resource_8ywle"), SubResource("Resource_017im"), SubResource("Resource_opyta")])
+id = "Fortune"
+type = 1
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_shvtx"), SubResource("Resource_w6sne"), SubResource("Resource_21w24"), SubResource("Resource_ucxpn")])
+icon = ExtResource("3_nkhwa")
+tooltip_text = "A lucky potion that brings prosperity and serendipity."
+effect_text = "Draw cards and gain mana immediately"

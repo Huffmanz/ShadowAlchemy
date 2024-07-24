@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=12 format=3 uid="uid://bwcsvet6r2mjl"]
+
+[ext_resource type="Resource" uid="uid://5ycqtxmmcahe" path="res://resources/cards/ingredients/Philosophers_Stone.tres" id="1_6cl3x"]
+[ext_resource type="Script" path="res://resources/card_pile.gd" id="1_nad4q"]
+[ext_resource type="Resource" uid="uid://cdekii2llroim" path="res://resources/cards/shadow/Decay.tres" id="1_qd1lo"]
+[ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="1_v1qux"]
+[ext_resource type="Resource" uid="uid://da003s3mpfb7v" path="res://resources/cards/shadow/Nightmare.tres" id="2_0v8ii"]
+[ext_resource type="Resource" uid="uid://cyv1tfkn8vgjo" path="res://resources/cards/shadow/Dark_Veil.tres" id="2_35p5a"]
+[ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="3_2lxax"]
+[ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="4_3fgqc"]
+[ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="4_6eps7"]
+[ext_resource type="Resource" uid="uid://bwov2yc1gy7o0" path="res://resources/cards/shadow/Eclipsed_Vision.tres" id="4_alybo"]
+[ext_resource type="Resource" uid="uid://byv31jsw7vgie" path="res://resources/cards/shadow/Shadow_Thief.tres" id="4_rdj8p"]
+
+[resource]
+script = ExtResource("1_nad4q")
+cards = Array[Resource("res://resources/card.gd")]([ExtResource("1_6cl3x"), ExtResource("1_6cl3x"), ExtResource("1_v1qux"), ExtResource("1_v1qux"), ExtResource("3_2lxax"), ExtResource("3_2lxax"), ExtResource("1_6cl3x"), ExtResource("1_6cl3x"), ExtResource("1_v1qux"), ExtResource("1_v1qux"), ExtResource("3_2lxax"), ExtResource("3_2lxax"), ExtResource("4_3fgqc"), ExtResource("4_3fgqc"), ExtResource("4_3fgqc"), ExtResource("4_3fgqc"), ExtResource("4_6eps7"), ExtResource("4_6eps7"), ExtResource("4_6eps7"), ExtResource("4_6eps7"), ExtResource("2_35p5a"), ExtResource("2_35p5a"), ExtResource("1_qd1lo"), ExtResource("1_qd1lo"), ExtResource("4_alybo"), ExtResource("4_alybo"), ExtResource("2_0v8ii"), ExtResource("2_0v8ii"), ExtResource("4_rdj8p"), ExtResource("4_rdj8p")])

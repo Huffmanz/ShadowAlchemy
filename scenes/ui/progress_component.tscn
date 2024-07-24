@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyv5cb20wgty"]
+
+[ext_resource type="Script" path="res://scenes/ui/progress_component.gd" id="1_674td"]
+
+[node name="ProgressComponent" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_674td")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 197.0
+offset_bottom = 17.0
+scale = Vector2(0.3, 0.3)
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 1
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = false
+button_mask = 0
+
+[node name="ingredient name" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Mandrake Root"
+
+[node name="quantity" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "(1/2)"

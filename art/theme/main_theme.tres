@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://brjii8ffeofm5"]
+
+[ext_resource type="FontFile" uid="uid://cuot3myg730mq" path="res://art/theme/Kenney Mini.ttf" id="1_jvquo"]
+
+[resource]
+default_font = ExtResource("1_jvquo")
+default_font_size = 8

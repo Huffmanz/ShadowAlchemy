@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://da003s3mpfb7v"]
+
+[ext_resource type="Texture2D" uid="uid://dnnu81niddgag" path="res://art/Nightmare.png" id="1_bluyo"]
+[ext_resource type="Script" path="res://resources/effects/reverse_elixir_effect.gd" id="1_i1bu1"]
+[ext_resource type="Script" path="res://resources/card.gd" id="3_o132d"]
+
+[sub_resource type="Resource" id="Resource_kyfhm"]
+script = ExtResource("1_i1bu1")
+amount = 1
+description = "Block next Elixir"
+
+[resource]
+script = ExtResource("3_o132d")
+id = "Nightmare"
+type = 2
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_kyfhm")])
+icon = ExtResource("1_bluyo")
+tooltip_text = "A terrifying vision that disrupts your concentration and focus."
+effect_text = "Block next Elixir effect"

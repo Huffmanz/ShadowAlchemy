@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Elixer" load_steps=14 format=3 uid="uid://ivskbe08xbec"]
+
+[ext_resource type="Script" path="res://resources/effects/gain_mana_effect.gd" id="1_5wels"]
+[ext_resource type="Texture2D" uid="uid://dqna8a01qveb2" path="res://art/Elixir of Speed.png" id="2_osnbd"]
+[ext_resource type="Script" path="res://resources/cost.gd" id="3_b62t1"]
+[ext_resource type="Resource" uid="uid://5ycqtxmmcahe" path="res://resources/cards/ingredients/Philosophers_Stone.tres" id="3_cwm1n"]
+[ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="4_s62xn"]
+[ext_resource type="Script" path="res://resources/elixer.gd" id="5_vwm4n"]
+[ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="6_myy3j"]
+
+[sub_resource type="Resource" id="Resource_w0ttb"]
+script = ExtResource("1_5wels")
+amount = 1
+description = "+1 Mana"
+
+[sub_resource type="Resource" id="Resource_u7xjy"]
+script = ExtResource("1_5wels")
+amount = 1
+description = "+1 Mana"
+
+[sub_resource type="Resource" id="Resource_00kew"]
+script = ExtResource("1_5wels")
+amount = 1
+description = "+1 Mana"
+
+[sub_resource type="Resource" id="Resource_aebib"]
+script = ExtResource("3_b62t1")
+card = ExtResource("3_cwm1n")
+count = 1
+
+[sub_resource type="Resource" id="Resource_56aau"]
+script = ExtResource("3_b62t1")
+card = ExtResource("4_s62xn")
+count = 1
+
+[sub_resource type="Resource" id="Resource_gc504"]
+script = ExtResource("3_b62t1")
+card = ExtResource("6_myy3j")
+count = 1
+
+[resource]
+script = ExtResource("5_vwm4n")
+ingredients = Array[ExtResource("3_b62t1")]([SubResource("Resource_aebib"), SubResource("Resource_56aau"), SubResource("Resource_gc504")])
+id = "Elixir of Speed"
+type = 1
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_w0ttb"), SubResource("Resource_u7xjy"), SubResource("Resource_00kew")])
+icon = ExtResource("2_osnbd")
+tooltip_text = "A swift brew that enhances agility and quickens reflexes."
+effect_text = "Gain mana immediately."

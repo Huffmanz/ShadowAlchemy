@@ -1,0 +1,90 @@
+[gd_scene load_steps=15 format=3 uid="uid://dyhxj03rgu530"]
+
+[ext_resource type="Script" path="res://scenes/match/match.gd" id="1_131e3"]
+[ext_resource type="Script" path="res://scenes/ui/match_ui.gd" id="2_0uui6"]
+[ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="2_1c7kh"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="2_72lv3"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_de1da"]
+[ext_resource type="Resource" uid="uid://cdkspj4cb4gal" path="res://resources/player/player_stats.tres" id="2_yc7qe"]
+[ext_resource type="Script" path="res://scenes/match/ElixerHandler.gd" id="3_7urc7"]
+[ext_resource type="Theme" uid="uid://brjii8ffeofm5" path="res://art/theme/main_theme.tres" id="4_1npnt"]
+[ext_resource type="PackedScene" uid="uid://cl4j4hehiutqw" path="res://scenes/card/card_ui/card_ui.tscn" id="7_2iim4"]
+[ext_resource type="PackedScene" uid="uid://2uxs3poqumjd" path="res://scenes/card/card_ui/elixer_card_ui.tscn" id="8_4788x"]
+[ext_resource type="PackedScene" uid="uid://bpatghakn5mtc" path="res://scenes/card/card_ui/shadow_card_ui.tscn" id="10_wgqdl"]
+[ext_resource type="PackedScene" uid="uid://up48f5tfgl6b" path="res://scenes/ui/tooltip.tscn" id="11_advvp"]
+[ext_resource type="PackedScene" uid="uid://3jxcjgl0uvck" path="res://scenes/ui/hud.tscn" id="13_wlhng"]
+[ext_resource type="PackedScene" uid="uid://cqbswefhtison" path="res://scenes/ui/card_effect_poppup.tscn" id="14_y5ihq"]
+
+[node name="MatchScene" type="Node2D" node_paths=PackedStringArray("player_handler")]
+script = ExtResource("1_131e3")
+char_stats = ExtResource("2_yc7qe")
+player_handler = NodePath("PlayerHandler")
+
+[node name="ElixerHandler" type="Node2D" parent="."]
+script = ExtResource("3_7urc7")
+elixers_to_draw = 1
+
+[node name="PlayerHandler" type="Node2D" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("2_1c7kh")
+hand = NodePath("../MatchUI/Hand")
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("2_72lv3")
+
+[node name="MatchUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+script = ExtResource("2_0uui6")
+
+[node name="Hud" parent="MatchUI" instance=ExtResource("13_wlhng")]
+
+[node name="ActiveElixers" type="HBoxContainer" parent="MatchUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_right = 75.0
+offset_bottom = 30.0
+grow_horizontal = 2
+pivot_offset = Vector2(75, 0)
+alignment = 1
+script = ExtResource("2_de1da")
+char_stats = ExtResource("2_yc7qe")
+card_ui = ExtResource("8_4788x")
+
+[node name="Hand" type="HBoxContainer" parent="MatchUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("2_de1da")
+card_ui = ExtResource("7_2iim4")
+
+[node name="ShadowHand" type="VBoxContainer" parent="MatchUI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_constants/separation = 1
+script = ExtResource("2_de1da")
+card_ui = ExtResource("10_wgqdl")
+
+[node name="EndTurnButton" type="Button" parent="MatchUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_top = 2.0
+offset_right = -33.0
+offset_bottom = 20.0
+grow_horizontal = 0
+theme = ExtResource("4_1npnt")
+text = "End Turn"
+
+[node name="PanelContainer" parent="MatchUI" instance=ExtResource("11_advvp")]
+
+[node name="CardEffectPoppup" parent="." instance=ExtResource("14_y5ihq")]

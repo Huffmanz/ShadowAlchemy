@@ -1,0 +1,205 @@
+[gd_scene load_steps=19 format=3 uid="uid://dudc3jul4ye65"]
+
+[ext_resource type="Material" uid="uid://ci1f7xqvh8mtm" path="res://materials/background_mat.tres" id="1_1e8gx"]
+[ext_resource type="Script" path="res://scenes/levels/main_menu.gd" id="1_grd5w"]
+[ext_resource type="Texture2D" uid="uid://bhle7w3206log" path="res://art/card_frame.png" id="2_5y3r7"]
+[ext_resource type="Script" path="res://scenes/card/menu_drop_point.gd" id="3_dphaj"]
+[ext_resource type="PackedScene" uid="uid://ctaaaiye2e7ww" path="res://scenes/ui/sound_button.tscn" id="3_oo3xj"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="4_wlycm"]
+[ext_resource type="Script" path="res://resources/card_pile.gd" id="5_oeqiq"]
+[ext_resource type="PackedScene" uid="uid://cl4j4hehiutqw" path="res://scenes/card/card_ui/card_ui.tscn" id="5_vr1e1"]
+[ext_resource type="Script" path="res://resources/character_stats.gd" id="6_xha48"]
+[ext_resource type="PackedScene" uid="uid://cyg6tq6ca1ihq" path="res://scenes/card/card_ui/menu_card_ui.tscn" id="8_aspnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqubi"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.52549)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kq4s"]
+size = Vector2(45, 50)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htbh2"]
+bg_color = Color(0.145098, 0.145098, 0.145098, 0.52549)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7fyf"]
+size = Vector2(45, 50)
+
+[sub_resource type="Resource" id="Resource_yddmi"]
+script = ExtResource("5_oeqiq")
+cards = Array[Resource("res://resources/card.gd")]([])
+
+[sub_resource type="Resource" id="Resource_mw4o7"]
+script = ExtResource("5_oeqiq")
+cards = Array[Resource("res://resources/card.gd")]([])
+
+[sub_resource type="Resource" id="Resource_v6cv3"]
+script = ExtResource("6_xha48")
+starting_deck = SubResource("Resource_mw4o7")
+elixer_deck = SubResource("Resource_yddmi")
+max_hand_size = 10
+starting_hand_amount = 10
+cards_per_turn = 10
+max_mana = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_srcsv"]
+texture = ExtResource("2_5y3r7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 30, 35)
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_grd5w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_1e8gx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 25.0
+offset_bottom = 75.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="StartPanel" type="PanelContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqubi")
+
+[node name="StartGameDetector" type="Area2D" parent="HBoxContainer/StartPanel"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(21, 24)
+collision_layer = 2
+script = ExtResource("3_dphaj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/StartPanel/StartGameDetector"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3kq4s")
+
+[node name="Label" type="Label" parent="HBoxContainer/StartPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitPanel" type="PanelContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htbh2")
+
+[node name="QuitGameDetector" type="Area2D" parent="HBoxContainer/QuitPanel"]
+unique_name_in_owner = true
+position = Vector2(20, 19)
+collision_layer = 2
+script = ExtResource("3_dphaj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/QuitPanel/QuitGameDetector"]
+visible = false
+position = Vector2(2, 6)
+shape = SubResource("RectangleShape2D_y7fyf")
+
+[node name="Label" type="Label" parent="HBoxContainer/QuitPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hand" type="HBoxContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -53.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+alignment = 1
+script = ExtResource("4_wlycm")
+char_stats = SubResource("Resource_v6cv3")
+card_ui = ExtResource("5_vr1e1")
+
+[node name="CardUI" parent="Hand" instance=ExtResource("8_aspnf")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_srcsv")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center][wave]Umbral Elixirs[/wave][/center]"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+
+[node name="StartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_oo3xj")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(53, 8)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Start"
+
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_oo3xj")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(53, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Quit"

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqbswefhtison"]
+
+[ext_resource type="Script" path="res://scenes/ui/card_effect_poppup.gd" id="1_mhcst"]
+[ext_resource type="PackedScene" uid="uid://dm2c3rdbvktu3" path="res://scenes/components/random_audio_stream_player.tscn" id="2_ouyxa"]
+[ext_resource type="AudioStream" uid="uid://b47155gu63u43" path="res://audio/impact/impactMining_000.ogg" id="3_3fplp"]
+[ext_resource type="AudioStream" uid="uid://crbc8bsgx7f2w" path="res://audio/impact/impactMining_001.ogg" id="4_djrt1"]
+[ext_resource type="AudioStream" uid="uid://dhie1hhghqpm6" path="res://audio/impact/impactMining_002.ogg" id="5_hfjwt"]
+[ext_resource type="AudioStream" uid="uid://dv1g4yxwgsu4u" path="res://audio/impact/impactMining_003.ogg" id="6_ltcxa"]
+[ext_resource type="AudioStream" uid="uid://dr6rb4k2313wo" path="res://audio/impact/impactMining_004.ogg" id="7_k6j7r"]
+
+[node name="CardEffectPoppup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+script = ExtResource("1_mhcst")
+
+[node name="EffectLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 254.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected-1]sdfdfst[/shake]
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="effect_player" parent="." instance=ExtResource("2_ouyxa")]
+bus = &"sfx"
+streams = Array[AudioStream]([ExtResource("3_3fplp"), ExtResource("4_djrt1"), ExtResource("5_hfjwt"), ExtResource("6_ltcxa"), ExtResource("7_k6j7r")])

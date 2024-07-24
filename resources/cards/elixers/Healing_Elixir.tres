@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="Elixer" load_steps=13 format=3 uid="uid://cj73fpas7l5t5"]
+
+[ext_resource type="Script" path="res://resources/elixer.gd" id="1_m16xi"]
+[ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="1_nyx2t"]
+[ext_resource type="Script" path="res://resources/effects/draw_card_effect.gd" id="1_olj05"]
+[ext_resource type="Script" path="res://resources/cost.gd" id="2_ei0vv"]
+[ext_resource type="Texture2D" uid="uid://kq6o22youulr" path="res://art/Healing Elixir.png" id="2_wib51"]
+[ext_resource type="Resource" uid="uid://5ycqtxmmcahe" path="res://resources/cards/ingredients/Philosophers_Stone.tres" id="4_peyqt"]
+[ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="5_x4trr"]
+
+[sub_resource type="Resource" id="Resource_shvtx"]
+script = ExtResource("1_olj05")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_w6sne"]
+script = ExtResource("1_olj05")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_b6n6c"]
+script = ExtResource("2_ei0vv")
+card = ExtResource("1_nyx2t")
+count = 1
+
+[sub_resource type="Resource" id="Resource_r4s4t"]
+script = ExtResource("2_ei0vv")
+card = ExtResource("4_peyqt")
+count = 1
+
+[sub_resource type="Resource" id="Resource_v1cdk"]
+script = ExtResource("2_ei0vv")
+card = ExtResource("5_x4trr")
+count = 1
+
+[resource]
+script = ExtResource("1_m16xi")
+ingredients = Array[ExtResource("2_ei0vv")]([SubResource("Resource_b6n6c"), SubResource("Resource_r4s4t"), SubResource("Resource_v1cdk")])
+id = "Healing Elixir"
+type = 1
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_shvtx"), SubResource("Resource_w6sne")])
+icon = ExtResource("2_wib51")
+tooltip_text = ""
+effect_text = "Draw 2 additional cards immediately."

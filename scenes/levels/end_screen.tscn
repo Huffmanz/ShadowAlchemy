@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://8mlx33a0f8xw"]
+
+[ext_resource type="Script" path="res://scenes/levels/end_screen.gd" id="1_03d42"]
+[ext_resource type="Material" uid="uid://ci1f7xqvh8mtm" path="res://materials/background_mat.tres" id="1_ulnvk"]
+[ext_resource type="Texture2D" uid="uid://bhle7w3206log" path="res://art/card_frame.png" id="2_xgsol"]
+[ext_resource type="PackedScene" uid="uid://ctaaaiye2e7ww" path="res://scenes/ui/sound_button.tscn" id="3_733k2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c84y7"]
+texture = ExtResource("2_xgsol")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 30, 35)
+
+[node name="EndScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_03d42")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_ulnvk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_c84y7")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "[center]Victory![/center]"
+fit_content = true
+scroll_active = false
+
+[node name="DescriptionLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "[center]You Won![/center]"
+fit_content = true
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+
+[node name="Restart" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_733k2")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(53, 8)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Restart"
+
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_733k2")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Quit to Menu"
