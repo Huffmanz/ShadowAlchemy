@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 func start(effect: EffectBase):
 	effect_label.text = "[shake rate=20.0 level=5 connected-1]%s[/shake]" % effect.description
+	Events.effect_applied.emit(effect)
 	effect_player.play_random()
 	timer.start()
 	await timer.timeout

@@ -3,10 +3,10 @@ extends CanvasLayer
 
 @export var char_stats : CharacterStats : set = _set_char_stats
 
-@onready var active_elixers: Hand = $ActiveElixers as Hand
-@onready var hand: Hand = $Hand as Hand
-@onready var shadow_hand: Hand = $ShadowHand
-@onready var hud: CanvasLayer = $Hud
+@onready var active_elixers: Hand = %ActiveElixers as Hand
+@onready var hand: Hand = %Hand as Hand
+@onready var shadow_hand: Hand = %ShadowHand
+@onready var hud: CanvasLayer = %Hud
 
 func _set_char_stats(value: CharacterStats) -> void:
 	char_stats = value

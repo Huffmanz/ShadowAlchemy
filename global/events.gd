@@ -27,6 +27,7 @@ signal gain_mana(amount: int)
 signal lose_mana(amount: int)
 signal skip_draw_phase(amount: int)
 signal reschuffle_discard_deck(amount: int)
+signal effect_applied(effect: EffectBase)
 
 var reverse_elixir := 0 : set = _set_reverse_elixir
 func _set_reverse_elixir(value: int):

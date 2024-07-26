@@ -6,8 +6,6 @@ signal all_cards_played
 @export var char_stats: CharacterStats
 @export var card_ui : PackedScene
 
-const  PLAY_INTERVAL := 0.5
-
 func add_card_ui(new_card_ui: CardUI):
 	new_card_ui.reparent_requested.connect(_on_card_ui_reparent_requested)
 	new_card_ui.parent = self

@@ -12,9 +12,7 @@ func enter() -> void:
 	if card_ui.tween and card_ui.tween.is_running():
 		card_ui.tween.kill()
 		
-	#card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLEBOX)
 	card_ui.reparent_requested.emit(card_ui)
-	#card_ui.pivot_offset = Vector2.ZERO
 	Events.tooltip_hide_requested.emit()
 	
 func exit() -> void:
@@ -33,21 +31,14 @@ func on_gui_input(event: InputEvent) -> void:
 		transition_requested.emit(self, CardState.State.CLICKED)
 	
 func on_mouse_entered() -> void:
-	#if not card_ui.playable or card_ui.disabled:
-	#	return
-	
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()
 	hover_audio_player.play_random()
 	tween_hover = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	tween_hover.tween_property(card_ui, "scale",Vector2(1.2,1.2), .5)
-	
 	Events.card_tooltip_requested.emit(card_ui.card)
-	#card_ui.panel.set("theme_override_styles/panel", card_ui.HOVER_STYLEBOX)
 	
 func on_mouse_exited() -> void:
-	#if not card_ui.playable or card_ui.disabled:
-	#	return
 			
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()
@@ -59,6 +50,3 @@ func on_mouse_exited() -> void:
 		tween_hover.tween_property(card_ui, "scale",Vector2.ONE, .55)
 		
 	Events.tooltip_hide_requested.emit()
-	#card_ui.panel.set("theme_override_styles/panel", card_ui.BASE_STYLEBOX)
-	
-	

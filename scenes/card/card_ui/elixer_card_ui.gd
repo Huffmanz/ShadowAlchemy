@@ -42,5 +42,10 @@ func _on_elixer_completed() -> void:
 			await new_card_effect.complete
 	if Events.reverse_elixir > 0:
 		Events.reverse_elixir -= 1	
+	
+	tween = create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(0,0), .5)
+	await tween.finished
+	
 	Events.elixer_completed.emit()
 	queue_free()

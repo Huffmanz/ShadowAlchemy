@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ShadowAlchemy"
+config/name="Mystic Mixtures"
 run/main_scene="res://scenes/levels/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Events="*res://global/events.gd"
-Shaker="*res://global/shaker.gd"
 ScreenTransition="*res://global/screen_transition.tscn"
 MusicPlayer="*res://global/music_player.tscn"
 
@@ -30,6 +29,10 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/shaker/plugin.cfg")
 
 [gui]
 

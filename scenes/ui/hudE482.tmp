@@ -148,9 +148,11 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "10/40"
 label_settings = SubResource("LabelSettings_pvfeu")
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ElixirPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=11 format=3 uid="uid://bjutc8of2per"]
+
+[ext_resource type="Texture2D" uid="uid://d11jpny4hue1a" path="res://art/mandrake.png" id="1_kyc0o"]
+[ext_resource type="Script" path="res://resources/card.gd" id="2_eovm3"]
+[ext_resource type="Resource" uid="uid://bwov2yc1gy7o0" path="res://resources/cards/shadow/Eclipsed_Vision.tres" id="3_3kyff"]
+[ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="4_bxh47"]
+[ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="5_1x5ho"]
+[ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="6_1p1la"]
+[ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="7_6fws5"]
+[ext_resource type="Script" path="res://resources/card_pile.gd" id="11_yjll0"]
+
+[sub_resource type="Resource" id="Resource_os488"]
+script = ExtResource("2_eovm3")
+id = "Mandrake Root"
+type = 0
+cost = 1
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([])
+icon = ExtResource("1_kyc0o")
+tooltip_text = "A mystical root known for its healing properties."
+effect_text = "Basic ingredient for multiple elixirs."
+
+[sub_resource type="Resource" id="Resource_nxft5"]
+script = ExtResource("2_eovm3")
+id = "Mandrake Root"
+type = 0
+cost = 1
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([])
+icon = ExtResource("1_kyc0o")
+tooltip_text = "A mystical root known for its healing properties."
+effect_text = "Basic ingredient for multiple elixirs."
+
+[resource]
+script = ExtResource("11_yjll0")
+cards = Array[ExtResource("2_eovm3")]([SubResource("Resource_os488"), SubResource("Resource_nxft5"), ExtResource("3_3kyff"), ExtResource("3_3kyff"), ExtResource("4_bxh47"), ExtResource("5_1x5ho"), ExtResource("6_1p1la"), ExtResource("7_6fws5")])

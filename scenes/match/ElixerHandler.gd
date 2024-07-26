@@ -6,7 +6,7 @@ const HAND_DISCARD_INTERVAL := 0.5
 
 @export var elixer_deck: CardPile
 @export var elixers_to_draw := 3
-@onready var active_elixers: Hand = $"../MatchUI/ActiveElixers" as Hand
+@onready var active_elixers: Hand = %ActiveElixers as Hand
 var elixir_count = 0
 
 func _ready() -> void:

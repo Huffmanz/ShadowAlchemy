@@ -5,7 +5,7 @@ const HAND_DRAW_INTERVAL := 0.5
 const HAND_DISCARD_INTERVAL := 0.5
 
 @export var hand: Hand
-@onready var shadow_hand: Hand = $"../MatchUI/ShadowHand"
+@onready var shadow_hand: Hand = %ShadowHand
 
 var character: CharacterStats
 var skip_draws : int = 0 : set = _set_skip_draws
@@ -45,10 +45,6 @@ func end_turn() -> void:
 	character.reset_mana()
 	hand.disable_hand()
 	Events.player_turn_ended.emit()
-	#shadow_hand.play_all()
-	#await shadow_hand.all_cards_played
-	#start_turn()
-	#get_tree().create_timer(1.0).timeout.connect(start_turn)
 	
 func discard_cards(amount: int) -> void:
 	var count := 0

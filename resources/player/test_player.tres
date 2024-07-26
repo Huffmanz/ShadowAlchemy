@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=4 format=3 uid="uid://c0eg6o0b1br3y"]
+
+[ext_resource type="Resource" uid="uid://kmfg6jvot5jm" path="res://resources/deck/test_elixir_deck.tres" id="1_rhibf"]
+[ext_resource type="Script" path="res://resources/character_stats.gd" id="2_6evp3"]
+[ext_resource type="Resource" uid="uid://bjutc8of2per" path="res://resources/deck/test_main_deck.tres" id="3_yw5t0"]
+
+[resource]
+script = ExtResource("2_6evp3")
+starting_deck = ExtResource("3_yw5t0")
+elixer_deck = ExtResource("1_rhibf")
+max_hand_size = 8
+starting_hand_amount = 1
+cards_per_turn = 1
+max_mana = 3

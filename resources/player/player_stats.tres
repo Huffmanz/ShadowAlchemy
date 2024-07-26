@@ -8,7 +8,7 @@
 script = ExtResource("1_vslti")
 starting_deck = ExtResource("3_mkybm")
 elixer_deck = ExtResource("1_6lnck")
-max_hand_size = 8
+max_hand_size = 6
 starting_hand_amount = 5
 cards_per_turn = 1
 max_mana = 3

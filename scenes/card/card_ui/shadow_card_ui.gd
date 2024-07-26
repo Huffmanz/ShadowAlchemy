@@ -21,5 +21,10 @@ func play() -> void:
 			await new_card_effect.complete
 	if Events.block_shadow > 0:
 		Events.block_shadow -= 1
+		
+	tween = create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2(0,0), .5)
+	await tween.finished
+	
 	card_played.emit()
 	queue_free()

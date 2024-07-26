@@ -90,7 +90,7 @@ border_width_bottom = 1
 corner_detail = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnmq5"]
-size = Vector2(10, 35)
+size = Vector2(19, 36)
 
 [node name="CardUI" type="Control" groups=["card_ui"]]
 material = SubResource("ShaderMaterial_5w8fx")
@@ -209,6 +209,7 @@ position = Vector2(15, 18)
 collision_mask = 2
 
 [node name="DropPointCollision" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_vnmq5")
 
 [node name="EffectHandler" type="Node" parent="."]

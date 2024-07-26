@@ -50,7 +50,7 @@ region_rect = Rect2(0, 70, 30, 35)
 size = Vector2(25, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66v07"]
-size = Vector2(25, 30)
+size = Vector2(25, 35)
 
 [node name="ElixerCardUI" type="Control"]
 material = SubResource("ShaderMaterial_3d1cn")
@@ -158,6 +158,7 @@ script = ExtResource("5_uyo6t")
 card_ui = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPoint"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_66v07")
 
 [node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

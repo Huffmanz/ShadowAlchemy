@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=14 format=3 uid="uid://kmfg6jvot5jm"]
+
+[ext_resource type="Script" path="res://resources/effects/draw_card_effect.gd" id="1_q14v5"]
+[ext_resource type="Script" path="res://resources/effects/gain_mana_effect.gd" id="2_12hpq"]
+[ext_resource type="Texture2D" uid="uid://x8kqrnyvubes" path="res://art/Elixir of Fortune.png" id="3_d0qvk"]
+[ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="4_rrsdn"]
+[ext_resource type="Script" path="res://resources/cost.gd" id="5_dbxpx"]
+[ext_resource type="Script" path="res://resources/elixer.gd" id="6_beblg"]
+[ext_resource type="Script" path="res://resources/card_pile.gd" id="6_sun81"]
+
+[sub_resource type="Resource" id="Resource_shvtx"]
+script = ExtResource("1_q14v5")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_w6sne"]
+script = ExtResource("1_q14v5")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_21w24"]
+script = ExtResource("1_q14v5")
+amount = 1
+description = "+1 Cards"
+
+[sub_resource type="Resource" id="Resource_ucxpn"]
+script = ExtResource("2_12hpq")
+amount = 1
+description = ""
+
+[sub_resource type="Resource" id="Resource_8ywle"]
+script = ExtResource("5_dbxpx")
+card = ExtResource("4_rrsdn")
+count = 1
+
+[sub_resource type="Resource" id="Resource_aorbj"]
+script = ExtResource("6_beblg")
+ingredients = Array[ExtResource("5_dbxpx")]([SubResource("Resource_8ywle")])
+id = "Fortune"
+type = 1
+cost = 0
+effects = Array[Resource("res://resources/effects/effect_base.gd")]([SubResource("Resource_shvtx"), SubResource("Resource_w6sne"), SubResource("Resource_21w24"), SubResource("Resource_ucxpn")])
+icon = ExtResource("3_d0qvk")
+tooltip_text = "A lucky potion that brings prosperity and serendipity."
+effect_text = "Draw cards and gain mana immediately"
+
+[resource]
+script = ExtResource("6_sun81")
+cards = Array[Resource("res://resources/card.gd")]([SubResource("Resource_aorbj")])

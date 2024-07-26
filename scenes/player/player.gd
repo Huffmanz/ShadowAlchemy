@@ -19,4 +19,3 @@ func update_player():
 	
 func update_stats():
 	pass
-	#stats_ui.update_stats(stats)
