@@ -23,8 +23,8 @@ const max_offset_shadow := 5.0
 @onready var shadow: Panel = %Shadow
 
 @export_category("Oscillator")
-@export var spring: float = 150.0
-@export var damp: float = 30.0
+@export var spring: float = 250.0
+@export var damp: float = 10.0
 @export var velocity_multiplier: float = 2.0
 
 const CARD_EFFECT_POPPUP = preload("res://scenes/ui/card_effect_poppup.tscn")

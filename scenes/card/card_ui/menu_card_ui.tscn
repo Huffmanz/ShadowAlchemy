@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://resources/character_stats.gd" id="5_gn1xk"]
 [ext_resource type="Texture2D" uid="uid://bhle7w3206log" path="res://art/card_frame.png" id="6_usug3"]
 [ext_resource type="Texture2D" uid="uid://dhu7e5i54ebmb" path="res://art/card_frame_ingredient.png" id="7_218ed"]
-[ext_resource type="Texture2D" uid="uid://d11jpny4hue1a" path="res://art/mandrake.png" id="8_cgoqc"]
+[ext_resource type="Texture2D" uid="uid://d11jpny4hue1a" path="res://art/icons/mandrake.png" id="8_0wnpc"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_state_machine.gd" id="10_7hcct"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_base_state.gd" id="11_bamy2"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_clicked_state.gd" id="12_uni4o"]
@@ -76,12 +76,13 @@ starting_hand_amount = 10
 cards_per_turn = 10
 max_mana = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxr4q"]
-bg_color = Color(0, 0.482353, 0.352941, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jjmh"]
+texture = ExtResource("6_usug3")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 30, 34)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q30up"]
 texture = ExtResource("6_usug3")
@@ -116,7 +117,7 @@ corner_detail = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnmq5"]
 size = Vector2(10, 45)
 
-[node name="CardUI" type="Control" groups=["card_ui"]]
+[node name="MainMenuCardUI" type="Control" groups=["card_ui"]]
 material = SubResource("ShaderMaterial_5w8fx")
 custom_minimum_size = Vector2(40, 45)
 layout_mode = 3
@@ -139,7 +140,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xxr4q")
+theme_override_styles/panel = SubResource("StyleBoxTexture_7jjmh")
 
 [node name="Panel" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -227,7 +228,7 @@ offset_top = 5.0
 offset_right = 23.0
 offset_bottom = 21.0
 mouse_filter = 2
-texture = ExtResource("8_cgoqc")
+texture = ExtResource("8_0wnpc")
 stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel"]

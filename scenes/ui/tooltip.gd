@@ -22,7 +22,7 @@ func show_tooltip(card: Card) -> void:
 	if tween: tween.kill()
 	
 	tooltip_icon.texture = card.icon
-	tooltip_text_label.text = card.effect_text
+	tooltip_text_label.text = "[u]%s[/u]" % card.effect_text
 	name_text.text = card.id
 	type_text.text = str(card.Type.keys()[card.type])
 	tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://0gx75nkbt6ku"]
 
-[ext_resource type="Texture2D" uid="uid://u1qtlhuli8s5" path="res://art/Dragon Blood.png" id="1_qaqam"]
+[ext_resource type="Texture2D" uid="uid://u1qtlhuli8s5" path="res://art/icons/Dragon Blood.png" id="1_qaqam"]
 [ext_resource type="Script" path="res://resources/card.gd" id="1_r1xjw"]
 
 [resource]

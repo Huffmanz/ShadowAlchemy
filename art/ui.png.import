@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsc30tiaeefd7"
-path="res://.godot/imported/Decay.png-2f8958f3628ad58318ccf14f7685ac31.ctex"
+uid="uid://d3pli7i3471pa"
+path="res://.godot/imported/ui.png-d4ab801269485507b9bc5dcdaf6a4b75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Decay.png"
-dest_files=["res://.godot/imported/Decay.png-2f8958f3628ad58318ccf14f7685ac31.ctex"]
+source_file="res://art/ui.png"
+dest_files=["res://.godot/imported/ui.png-d4ab801269485507b9bc5dcdaf6a4b75.ctex"]
 
 [params]
 

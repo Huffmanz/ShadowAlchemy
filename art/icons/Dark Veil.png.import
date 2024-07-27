@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dph3gtjmkdr2o"
-path="res://.godot/imported/Eclipsed Vision.png-b3acf72251e0ecc713901d5ef8e5a42f.ctex"
+uid="uid://bl03kndrv1cjk"
+path="res://.godot/imported/Dark Veil.png-7a83894e602e0de61d1c9b4cc8b849b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Eclipsed Vision.png"
-dest_files=["res://.godot/imported/Eclipsed Vision.png-b3acf72251e0ecc713901d5ef8e5a42f.ctex"]
+source_file="res://art/icons/Dark Veil.png"
+dest_files=["res://.godot/imported/Dark Veil.png-7a83894e602e0de61d1c9b4cc8b849b3.ctex"]
 
 [params]
 

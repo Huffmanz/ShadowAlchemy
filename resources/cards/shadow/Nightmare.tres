@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://da003s3mpfb7v"]
 
-[ext_resource type="Texture2D" uid="uid://dnnu81niddgag" path="res://art/Nightmare.png" id="1_bluyo"]
+[ext_resource type="Texture2D" uid="uid://dnnu81niddgag" path="res://art/icons/Nightmare.png" id="1_bluyo"]
 [ext_resource type="Script" path="res://resources/effects/reverse_elixir_effect.gd" id="1_i1bu1"]
 [ext_resource type="Script" path="res://resources/card.gd" id="3_o132d"]
 

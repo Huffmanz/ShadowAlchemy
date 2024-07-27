@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://resources/effects/gain_mana_effect.gd" id="2_o5k5h"]
 [ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="2_vim8x"]
 [ext_resource type="Script" path="res://resources/cost.gd" id="3_5nxhg"]
-[ext_resource type="Texture2D" uid="uid://x8kqrnyvubes" path="res://art/Elixir of Fortune.png" id="3_nkhwa"]
+[ext_resource type="Texture2D" uid="uid://x8kqrnyvubes" path="res://art/icons/Elixir of Fortune.png" id="3_nkhwa"]
 [ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="4_xhwah"]
 [ext_resource type="Script" path="res://resources/elixer.gd" id="5_t05ib"]
 [ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="7_iebh2"]

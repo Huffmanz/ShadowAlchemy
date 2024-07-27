@@ -5,6 +5,7 @@ const HAND_DRAW_INTERVAL := 0.5
 const HAND_DISCARD_INTERVAL := 0.5
 
 @export var hand: Hand
+@export var shuffle: bool = true
 @onready var shadow_hand: Hand = %ShadowHand
 
 var character: CharacterStats
@@ -25,13 +26,15 @@ func _ready() -> void:
 func start_battle(char_stats: CharacterStats) -> void:
 	character = char_stats
 	character.draw_pile = character.starting_deck.duplicate(true)
-	character.draw_pile.shuffle()
+	if shuffle:
+		character.draw_pile.shuffle()
 	character.discard = CardPile.new()
 	character.reset_mana()
 	draw_cards(character.starting_hand_amount)
 	start_turn()
 	
 func start_turn() -> void:
+	Events.player_turn_started.emit()
 	if character.draw_pile.cards.is_empty():
 		Events.game_over.emit()
 	if skip_draws == 0:

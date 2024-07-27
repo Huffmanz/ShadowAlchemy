@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Card" load_steps=7 format=3 uid="uid://bwov2yc1gy7o0"]
 
 [ext_resource type="Script" path="res://resources/effects/discard_card_effect.gd" id="1_ismdh"]
-[ext_resource type="Texture2D" uid="uid://dph3gtjmkdr2o" path="res://art/Eclipsed Vision.png" id="1_yj0y7"]
+[ext_resource type="Texture2D" uid="uid://dph3gtjmkdr2o" path="res://art/icons/Eclipsed Vision.png" id="1_yj0y7"]
 [ext_resource type="Script" path="res://resources/effects/draw_card_effect.gd" id="2_hu1gu"]
 [ext_resource type="Script" path="res://resources/card.gd" id="3_84gfv"]
 

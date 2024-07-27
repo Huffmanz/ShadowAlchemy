@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x8kqrnyvubes"
-path="res://.godot/imported/Elixir of Fortune.png-4ca4ec007f97d2bb5cdadb0e70264b3c.ctex"
+uid="uid://dph3gtjmkdr2o"
+path="res://.godot/imported/Eclipsed Vision.png-fea67b74dab669141d95cb184f3c19ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Elixir of Fortune.png"
-dest_files=["res://.godot/imported/Elixir of Fortune.png-4ca4ec007f97d2bb5cdadb0e70264b3c.ctex"]
+source_file="res://art/icons/Eclipsed Vision.png"
+dest_files=["res://.godot/imported/Eclipsed Vision.png-fea67b74dab669141d95cb184f3c19ee.ctex"]
 
 [params]
 

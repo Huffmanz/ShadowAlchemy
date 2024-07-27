@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Elixer" load_steps=14 format=3 uid="uid://ivskbe08xbec"]
 
 [ext_resource type="Script" path="res://resources/effects/gain_mana_effect.gd" id="1_5wels"]
-[ext_resource type="Texture2D" uid="uid://dqna8a01qveb2" path="res://art/Elixir of Speed.png" id="2_osnbd"]
+[ext_resource type="Texture2D" uid="uid://dqna8a01qveb2" path="res://art/icons/Elixir of Speed.png" id="2_osnbd"]
 [ext_resource type="Script" path="res://resources/cost.gd" id="3_b62t1"]
 [ext_resource type="Resource" uid="uid://5ycqtxmmcahe" path="res://resources/cards/ingredients/Philosophers_Stone.tres" id="3_cwm1n"]
 [ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="4_s62xn"]

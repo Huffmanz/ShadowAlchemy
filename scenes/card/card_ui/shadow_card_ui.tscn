@@ -1,10 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://bpatghakn5mtc"]
+[gd_scene load_steps=26 format=3 uid="uid://bpatghakn5mtc"]
 
 [ext_resource type="Script" path="res://scenes/card/card_ui/shadow_card_ui.gd" id="1_o7c3u"]
 [ext_resource type="Script" path="res://scenes/card/drop_point.gd" id="2_24c65"]
 [ext_resource type="Texture2D" uid="uid://bhle7w3206log" path="res://art/card_frame.png" id="2_sxpnl"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_state_machine.gd" id="3_47fw0"]
-[ext_resource type="Texture2D" uid="uid://dhu7e5i54ebmb" path="res://art/card_frame_ingredient.png" id="3_m4upx"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_base_state.gd" id="4_o2ko4"]
 [ext_resource type="Script" path="res://scenes/card/effects/effect_handler.gd" id="5_8f0mu"]
 [ext_resource type="Script" path="res://scenes/card/effects/discard_card_effect.gd" id="6_j1vh2"]
@@ -54,12 +53,13 @@ shader_parameter/burn_size = 0.03
 shader_parameter/burn_color = Color(0.752941, 0.364706, 0.117647, 1)
 shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_aj7xu")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiwjv"]
-bg_color = Color(0, 0.482353, 0.352941, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwtm3"]
+texture = ExtResource("2_sxpnl")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 30, 35)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sudgd"]
 texture = ExtResource("2_sxpnl")
@@ -70,12 +70,12 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(0, 35, 30, 35)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_73wiw"]
-texture = ExtResource("3_m4upx")
-texture_margin_left = 2.0
+texture = ExtResource("2_sxpnl")
+texture_margin_left = 4.0
 texture_margin_top = 2.0
-texture_margin_right = 1.0
+texture_margin_right = 5.0
 texture_margin_bottom = 2.0
-region_rect = Rect2(2.72786, 58.6743, 24.2721, 7.32571)
+region_rect = Rect2(3, 129, 24, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00xdh"]
 size = Vector2(25, 30)
@@ -109,7 +109,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qiwjv")
+theme_override_styles/panel = SubResource("StyleBoxTexture_pwtm3")
 
 [node name="Panel" type="Panel" parent="."]
 unique_name_in_owner = true
@@ -124,18 +124,18 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_sudgd")
 
 [node name="NamePlate" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 25.0
-offset_right = 27.0
-offset_bottom = 33.0
+offset_left = -1.0
+offset_top = 22.0
+offset_right = 31.0
+offset_bottom = 30.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_73wiw")
 
 [node name="Name" type="Label" parent="Panel/NamePlate"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 1.0
+offset_left = 4.0
 offset_top = 3.0
-offset_right = 112.0
+offset_right = 115.0
 offset_bottom = 15.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 12

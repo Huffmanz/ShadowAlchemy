@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="1_nyx2t"]
 [ext_resource type="Script" path="res://resources/effects/draw_card_effect.gd" id="1_olj05"]
 [ext_resource type="Script" path="res://resources/cost.gd" id="2_ei0vv"]
-[ext_resource type="Texture2D" uid="uid://kq6o22youulr" path="res://art/Healing Elixir.png" id="2_wib51"]
+[ext_resource type="Texture2D" uid="uid://kq6o22youulr" path="res://art/icons/Healing Elixir.png" id="2_wib51"]
 [ext_resource type="Resource" uid="uid://5ycqtxmmcahe" path="res://resources/cards/ingredients/Philosophers_Stone.tres" id="4_peyqt"]
 [ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="5_x4trr"]
 

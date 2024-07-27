@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kq6o22youulr"
-path="res://.godot/imported/Healing Elixir.png-683a9fd54ab6db9683fbd949803dc8e7.ctex"
+uid="uid://bsc30tiaeefd7"
+path="res://.godot/imported/Decay.png-06fb08f1ab7e9ed211709f7c48d5fcab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Healing Elixir.png"
-dest_files=["res://.godot/imported/Healing Elixir.png-683a9fd54ab6db9683fbd949803dc8e7.ctex"]
+source_file="res://art/icons/Decay.png"
+dest_files=["res://.godot/imported/Decay.png-06fb08f1ab7e9ed211709f7c48d5fcab.ctex"]
 
 [params]
 

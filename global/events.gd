@@ -15,6 +15,7 @@ signal tooltip_hide_requested
 signal card_drawn
 
 #player related events
+signal player_turn_started
 signal player_hand_drawn
 signal player_hand_discarded
 signal player_end_turn

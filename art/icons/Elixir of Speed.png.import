@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc3mu4cbj1ahl"
-path="res://.godot/imported/Philosophers Stone.png-f9e67d0cc362fd2b045b0e6bbd33c4df.ctex"
+uid="uid://dqna8a01qveb2"
+path="res://.godot/imported/Elixir of Speed.png-14e083b7969b6e81fd8073d47c1acd42.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Philosophers Stone.png"
-dest_files=["res://.godot/imported/Philosophers Stone.png-f9e67d0cc362fd2b045b0e6bbd33c4df.ctex"]
+source_file="res://art/icons/Elixir of Speed.png"
+dest_files=["res://.godot/imported/Elixir of Speed.png-14e083b7969b6e81fd8073d47c1acd42.ctex"]
 
 [params]
 

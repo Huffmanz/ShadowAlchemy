@@ -1,11 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://dyhxj03rgu530"]
+[gd_scene load_steps=31 format=3 uid="uid://dyhxj03rgu530"]
 
-[ext_resource type="Script" path="res://scenes/match/match.gd" id="1_131e3"]
+[ext_resource type="Script" path="res://scenes/levels/match.gd" id="1_131e3"]
 [ext_resource type="Script" path="res://scenes/ui/match_ui.gd" id="2_0uui6"]
 [ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="2_1c7kh"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_72lv3"]
 [ext_resource type="Script" path="res://scenes/ui/hand.gd" id="2_de1da"]
-[ext_resource type="Resource" uid="uid://c0eg6o0b1br3y" path="res://resources/player/test_player.tres" id="2_pa2ql"]
 [ext_resource type="Resource" uid="uid://cdkspj4cb4gal" path="res://resources/player/player_stats.tres" id="2_yc7qe"]
 [ext_resource type="Script" path="res://scenes/match/ElixerHandler.gd" id="3_7urc7"]
 [ext_resource type="Script" path="res://scenes/match/shadow_handler.gd" id="5_fjvcu"]
@@ -37,7 +36,7 @@ point_count = 2
 
 [node name="MatchScene" type="Node2D" node_paths=PackedStringArray("player_handler")]
 script = ExtResource("1_131e3")
-char_stats = ExtResource("2_pa2ql")
+char_stats = ExtResource("2_yc7qe")
 player_handler = NodePath("PlayerHandler")
 
 [node name="ElixerHandler" type="Node2D" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/effects/reschuffle_discard_deck.gd" id="1_4yao0"]
 [ext_resource type="Resource" uid="uid://fccru1efvkft" path="res://resources/cards/ingredients/Mandrake_Root.tres" id="2_7f7gp"]
-[ext_resource type="Texture2D" uid="uid://cha5kde0jends" path="res://art/Elixir of Transformation.png" id="2_guy1g"]
+[ext_resource type="Texture2D" uid="uid://cha5kde0jends" path="res://art/icons/Elixir of Transformation.png" id="2_guy1g"]
 [ext_resource type="Script" path="res://resources/cost.gd" id="3_n0jxq"]
 [ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="4_w6oew"]
 [ext_resource type="Resource" uid="uid://5ycqtxmmcahe" path="res://resources/cards/ingredients/Philosophers_Stone.tres" id="5_ho3b7"]

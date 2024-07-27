@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u1qtlhuli8s5"
-path="res://.godot/imported/Dragon Blood.png-60ba4a67ee9d2f61a71ba573db399c7c.ctex"
+uid="uid://kq6o22youulr"
+path="res://.godot/imported/Healing Elixir.png-3aab1ce6923b21ff3fddb03aafc585f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Dragon Blood.png"
-dest_files=["res://.godot/imported/Dragon Blood.png-60ba4a67ee9d2f61a71ba573db399c7c.ctex"]
+source_file="res://art/icons/Healing Elixir.png"
+dest_files=["res://.godot/imported/Healing Elixir.png-3aab1ce6923b21ff3fddb03aafc585f1.ctex"]
 
 [params]
 

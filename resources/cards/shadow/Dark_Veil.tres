@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://cyv1tfkn8vgjo"]
 
-[ext_resource type="Texture2D" uid="uid://bl03kndrv1cjk" path="res://art/Dark Veil.png" id="1_6gb5t"]
+[ext_resource type="Texture2D" uid="uid://bl03kndrv1cjk" path="res://art/icons/Dark Veil.png" id="1_6gb5t"]
 [ext_resource type="Script" path="res://resources/effects/skip_draw_phase.gd" id="1_nimc5"]
 [ext_resource type="Script" path="res://resources/card.gd" id="3_4r30m"]
 

@@ -18,7 +18,7 @@ func _ready():
 	draw_card_button.disabled = true
 	draw_card_button.pressed.connect(_on_draw_card_pressed)
 	end_turn_button.pressed.connect(_on_end_turn_pressed)
-	Events.player_hand_drawn.connect(_on_player_hand_drawn)
+	Events.player_turn_started.connect(_on_player_hand_drawn)
 	Events.elixer_completed.connect(_on_elixir_completed)
 	mana_label.pivot_offset = mana_label.size  / 2
 

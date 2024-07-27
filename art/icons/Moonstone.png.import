@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnnu81niddgag"
-path="res://.godot/imported/Nightmare.png-a3a5277e6273313be3935c7dff77fb50.ctex"
+uid="uid://d4dnmdlc77thp"
+path="res://.godot/imported/Moonstone.png-6dd33d2e997a77a203511fa12eced4f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Nightmare.png"
-dest_files=["res://.godot/imported/Nightmare.png-a3a5277e6273313be3935c7dff77fb50.ctex"]
+source_file="res://art/icons/Moonstone.png"
+dest_files=["res://.godot/imported/Moonstone.png-6dd33d2e997a77a203511fa12eced4f7.ctex"]
 
 [params]
 

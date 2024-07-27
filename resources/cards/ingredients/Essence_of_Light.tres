@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cakmxb1aj5upl"]
 
-[ext_resource type="Texture2D" uid="uid://okmy57w6sjjo" path="res://art/Essence of Light.png" id="1_kffrq"]
+[ext_resource type="Texture2D" uid="uid://okmy57w6sjjo" path="res://art/icons/Essence of Light.png" id="1_kffrq"]
 [ext_resource type="Script" path="res://resources/card.gd" id="2_gc8ap"]
 
 [resource]

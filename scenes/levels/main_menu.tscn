@@ -11,24 +11,26 @@
 [ext_resource type="Script" path="res://resources/character_stats.gd" id="6_xha48"]
 [ext_resource type="PackedScene" uid="uid://cyg6tq6ca1ihq" path="res://scenes/card/card_ui/menu_card_ui.tscn" id="8_aspnf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqubi"]
-bg_color = Color(0.145098, 0.145098, 0.145098, 0.52549)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbtd1"]
+texture = ExtResource("2_5y3r7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 30, 35)
+modulate_color = Color(0, 0, 0, 0.427451)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kq4s"]
 size = Vector2(45, 50)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htbh2"]
-bg_color = Color(0.145098, 0.145098, 0.145098, 0.52549)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lkorg"]
+texture = ExtResource("2_5y3r7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 30, 35)
+modulate_color = Color(0, 0, 0, 0.427451)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7fyf"]
 size = Vector2(45, 50)
@@ -84,7 +86,7 @@ alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(45, 50)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yqubi")
+theme_override_styles/panel = SubResource("StyleBoxTexture_kbtd1")
 
 [node name="StartGameDetector" type="Area2D" parent="HBoxContainer/StartPanel"]
 unique_name_in_owner = true
@@ -108,7 +110,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(45, 50)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_htbh2")
+theme_override_styles/panel = SubResource("StyleBoxTexture_lkorg")
 
 [node name="QuitGameDetector" type="Area2D" parent="HBoxContainer/QuitPanel"]
 unique_name_in_owner = true

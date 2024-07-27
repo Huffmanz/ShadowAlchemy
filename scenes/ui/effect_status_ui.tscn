@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxsvo6rtj6yf"]
 
-[ext_resource type="Texture2D" uid="uid://dnnu81niddgag" path="res://art/Nightmare.png" id="1_aqcc7"]
+[ext_resource type="Texture2D" uid="uid://dnnu81niddgag" path="res://art/icons/Nightmare.png" id="1_aqcc7"]
 
 [node name="EffectStatusUI" type="Control"]
 layout_mode = 3

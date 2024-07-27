@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://resources/elixer.gd" id="1_5chu1"]
 [ext_resource type="Script" path="res://resources/effects/block_shadow_effect.gd" id="1_rx76s"]
 [ext_resource type="Script" path="res://resources/cost.gd" id="2_e4frm"]
-[ext_resource type="Texture2D" uid="uid://dvyes6jc7o3lv" path="res://art/Shadowbane Elixir.png" id="2_i8a78"]
+[ext_resource type="Texture2D" uid="uid://dvyes6jc7o3lv" path="res://art/icons/Shadowbane Elixir.png" id="2_i8a78"]
 [ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="2_jia0y"]
 [ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="4_rqf47"]
 [ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="5_i00b7"]

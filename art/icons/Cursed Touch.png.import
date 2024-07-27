@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvyes6jc7o3lv"
-path="res://.godot/imported/Shadowbane Elixir.png-fb73a3301bb044093333b0cd19944f7c.ctex"
+uid="uid://b5y4mmb8p8esv"
+path="res://.godot/imported/Cursed Touch.png-ed5f17f07ed066a38a982f946acc2b3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Shadowbane Elixir.png"
-dest_files=["res://.godot/imported/Shadowbane Elixir.png-fb73a3301bb044093333b0cd19944f7c.ctex"]
+source_file="res://art/icons/Cursed Touch.png"
+dest_files=["res://.godot/imported/Cursed Touch.png-ed5f17f07ed066a38a982f946acc2b3c.ctex"]
 
 [params]
 

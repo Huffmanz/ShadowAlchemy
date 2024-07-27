@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardPile" load_steps=11 format=3 uid="uid://bjutc8of2per"]
 
-[ext_resource type="Texture2D" uid="uid://d11jpny4hue1a" path="res://art/mandrake.png" id="1_kyc0o"]
+[ext_resource type="Texture2D" uid="uid://d11jpny4hue1a" path="res://art/icons/mandrake.png" id="1_kyc0o"]
 [ext_resource type="Script" path="res://resources/card.gd" id="2_eovm3"]
 [ext_resource type="Resource" uid="uid://bwov2yc1gy7o0" path="res://resources/cards/shadow/Eclipsed_Vision.tres" id="3_3kyff"]
 [ext_resource type="Resource" uid="uid://0gx75nkbt6ku" path="res://resources/cards/ingredients/Dragon_Blood.tres" id="4_bxh47"]

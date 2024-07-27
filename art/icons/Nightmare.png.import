@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d11jpny4hue1a"
-path="res://.godot/imported/mandrake.png-91dd6285480a08cde280c1d7be8183ac.ctex"
+uid="uid://dnnu81niddgag"
+path="res://.godot/imported/Nightmare.png-060a433363cefa880555cd2bca65ee9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/mandrake.png"
-dest_files=["res://.godot/imported/mandrake.png-91dd6285480a08cde280c1d7be8183ac.ctex"]
+source_file="res://art/icons/Nightmare.png"
+dest_files=["res://.godot/imported/Nightmare.png-060a433363cefa880555cd2bca65ee9f.ctex"]
 
 [params]
 

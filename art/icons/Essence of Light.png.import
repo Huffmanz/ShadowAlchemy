@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://okmy57w6sjjo"
-path="res://.godot/imported/Essence of Light.png-39c974901c50508c14c38963bf9fd081.ctex"
+path="res://.godot/imported/Essence of Light.png-06213d97a83333a06592265cdcf6aa0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Essence of Light.png"
-dest_files=["res://.godot/imported/Essence of Light.png-39c974901c50508c14c38963bf9fd081.ctex"]
+source_file="res://art/icons/Essence of Light.png"
+dest_files=["res://.godot/imported/Essence of Light.png-06213d97a83333a06592265cdcf6aa0f.ctex"]
 
 [params]
 

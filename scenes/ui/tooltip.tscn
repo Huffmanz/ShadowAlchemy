@@ -1,26 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://up48f5tfgl6b"]
+[gd_scene load_steps=7 format=3 uid="uid://up48f5tfgl6b"]
 
 [ext_resource type="Script" path="res://scenes/ui/tooltip.gd" id="1_lxxxo"]
 [ext_resource type="Theme" uid="uid://brjii8ffeofm5" path="res://art/theme/main_theme.tres" id="1_wrsdi"]
+[ext_resource type="Texture2D" uid="uid://d3pli7i3471pa" path="res://art/ui.png" id="2_ljhfb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctsrn"]
-bg_color = Color(0.247059, 0.247059, 0.247059, 0.568627)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-anti_aliasing = false
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swmre"]
+texture = ExtResource("2_ljhfb")
+texture_margin_left = 11.0
+texture_margin_top = 14.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+region_rect = Rect2(65, 0, 31, 32)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yvre4"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+bg_color = Color(1, 1, 1, 0)
 border_color = Color(0.941176, 0.941176, 0.941176, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
@@ -44,24 +37,26 @@ expand_margin_right = 2.0
 anti_aliasing = false
 
 [node name="PanelContainer" type="PanelContainer"]
-custom_minimum_size = Vector2(90, 40)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_right = 25.0
+offset_left = -45.0
+offset_top = -20.0
+offset_right = 42.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_wrsdi")
-theme_override_styles/panel = SubResource("StyleBoxFlat_ctsrn")
+theme_override_styles/panel = SubResource("StyleBoxTexture_swmre")
 script = ExtResource("1_lxxxo")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_top = -10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -102,7 +97,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 6
-text = "Test Description"
+bbcode_enabled = true
+text = "[u]Test Description[/u]"
 fit_content = true
 scroll_active = false
 
@@ -114,6 +110,7 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 2
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_fwpu1")

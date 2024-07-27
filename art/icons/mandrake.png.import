@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl03kndrv1cjk"
-path="res://.godot/imported/Dark Veil.png-d531c091354966320b4389ede2401112.ctex"
+uid="uid://d11jpny4hue1a"
+path="res://.godot/imported/mandrake.png-41cbe50cfb69aa7c651b9bb89f2af88f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Dark Veil.png"
-dest_files=["res://.godot/imported/Dark Veil.png-d531c091354966320b4389ede2401112.ctex"]
+source_file="res://art/icons/mandrake.png"
+dest_files=["res://.godot/imported/mandrake.png-41cbe50cfb69aa7c651b9bb89f2af88f.ctex"]
 
 [params]
 
