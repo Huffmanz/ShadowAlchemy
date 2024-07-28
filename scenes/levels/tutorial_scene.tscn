@@ -1,0 +1,430 @@
+[gd_scene load_steps=38 format=3 uid="uid://bfonrio5cdmju"]
+
+[ext_resource type="Script" path="res://scenes/levels/match.gd" id="1_imsjg"]
+[ext_resource type="Resource" uid="uid://ihe6lp0watok" path="res://resources/player/tutorial_stats.tres" id="2_8ci6t"]
+[ext_resource type="Resource" uid="uid://cdkspj4cb4gal" path="res://resources/player/player_stats.tres" id="2_tsb42"]
+[ext_resource type="Script" path="res://scenes/match/ElixerHandler.gd" id="3_2afq0"]
+[ext_resource type="Script" path="res://scenes/player/player_handler.gd" id="4_0fbcf"]
+[ext_resource type="Script" path="res://scenes/match/shadow_handler.gd" id="5_epujc"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="6_bds7a"]
+[ext_resource type="Script" path="res://scenes/ui/match_ui.gd" id="7_x2x1f"]
+[ext_resource type="Material" uid="uid://ci1f7xqvh8mtm" path="res://materials/background_mat.tres" id="8_j7ne6"]
+[ext_resource type="PackedScene" uid="uid://3jxcjgl0uvck" path="res://scenes/ui/hud.tscn" id="9_p33ol"]
+[ext_resource type="Script" path="res://scenes/ui/hand.gd" id="10_gf6al"]
+[ext_resource type="PackedScene" uid="uid://2uxs3poqumjd" path="res://scenes/card/card_ui/elixer_card_ui.tscn" id="11_7quaf"]
+[ext_resource type="PackedScene" uid="uid://cl4j4hehiutqw" path="res://scenes/card/card_ui/card_ui.tscn" id="12_5hiuj"]
+[ext_resource type="PackedScene" uid="uid://bpatghakn5mtc" path="res://scenes/card/card_ui/shadow_card_ui.tscn" id="13_wtbkx"]
+[ext_resource type="PackedScene" uid="uid://up48f5tfgl6b" path="res://scenes/ui/tooltip.tscn" id="14_wuvbj"]
+[ext_resource type="Script" path="res://scenes/match/match_sfx.gd" id="15_2na2j"]
+[ext_resource type="PackedScene" uid="uid://dm2c3rdbvktu3" path="res://scenes/components/random_audio_stream_player.tscn" id="16_dbuf1"]
+[ext_resource type="AudioStream" uid="uid://po6ymfpii0h" path="res://audio/cards/card-place-1.ogg" id="17_n851r"]
+[ext_resource type="AudioStream" uid="uid://jm7qg12rdh6u" path="res://audio/cards/card-place-2.ogg" id="18_d88th"]
+[ext_resource type="AudioStream" uid="uid://dqg5xuea37yfp" path="res://audio/cards/card-place-3.ogg" id="19_splhr"]
+[ext_resource type="AudioStream" uid="uid://pp8i6o6bpjhk" path="res://audio/cards/card-place-4.ogg" id="20_a20hx"]
+[ext_resource type="AudioStream" uid="uid://u5ardtbh0g17" path="res://audio/cards/card-slide-1.ogg" id="21_mrq37"]
+[ext_resource type="AudioStream" uid="uid://dps82k441ru6u" path="res://audio/cards/card-slide-2.ogg" id="22_kdo5t"]
+[ext_resource type="AudioStream" uid="uid://cf57uxryn0onl" path="res://audio/cards/card-slide-3.ogg" id="23_2alfn"]
+[ext_resource type="AudioStream" uid="uid://dxx42hsjivqp1" path="res://audio/cards/card-slide-4.ogg" id="24_ret28"]
+[ext_resource type="AudioStream" uid="uid://2pp64mvht51v" path="res://audio/cards/card-slide-5.ogg" id="25_510or"]
+[ext_resource type="AudioStream" uid="uid://fveptbjvg4f0" path="res://audio/cards/card-slide-6.ogg" id="26_7oepi"]
+[ext_resource type="AudioStream" uid="uid://xrbkpy8oes5o" path="res://audio/cards/card-slide-7.ogg" id="27_d4hfq"]
+[ext_resource type="AudioStream" uid="uid://0ayjptuiemme" path="res://audio/cards/card-slide-8.ogg" id="28_v8fj6"]
+[ext_resource type="Script" path="res://addons/shaker/shaker.gd" id="29_wjorx"]
+[ext_resource type="Script" path="res://scenes/levels/TutorialScreen.gd" id="31_oyo3c"]
+[ext_resource type="PackedScene" uid="uid://ctaaaiye2e7ww" path="res://scenes/ui/sound_button.tscn" id="32_covj3"]
+[ext_resource type="Texture2D" uid="uid://d3pli7i3471pa" path="res://art/ui.png" id="32_hihop"]
+
+[sub_resource type="Curve" id="Curve_4vr24"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ppao7"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_knjbp"]
+gradient = SubResource("Gradient_ppao7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adqrc"]
+texture = ExtResource("32_hihop")
+texture_margin_left = 13.0
+texture_margin_top = 12.0
+texture_margin_right = 13.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 32, 28)
+
+[node name="TutorialScene" type="Node2D" node_paths=PackedStringArray("player_handler")]
+script = ExtResource("1_imsjg")
+char_stats = ExtResource("2_8ci6t")
+player_handler = NodePath("PlayerHandler")
+tutorial = true
+
+[node name="ElixerHandler" type="Node2D" parent="."]
+script = ExtResource("3_2afq0")
+
+[node name="PlayerHandler" type="Node2D" parent="." node_paths=PackedStringArray("hand")]
+script = ExtResource("4_0fbcf")
+hand = NodePath("../MatchUI/Control/Hand")
+shuffle = false
+
+[node name="ShadowHandler" type="Node2D" parent="." node_paths=PackedStringArray("shadow_hand")]
+script = ExtResource("5_epujc")
+shadow_hand = NodePath("../MatchUI/Control/ShadowHand")
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("6_bds7a")
+
+[node name="MatchUI" type="CanvasLayer" parent="." groups=["ui_layer"]]
+unique_name_in_owner = true
+layer = -1
+script = ExtResource("7_x2x1f")
+
+[node name="ColorRect" type="ColorRect" parent="MatchUI"]
+material = ExtResource("8_j7ne6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Control" type="Control" parent="MatchUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(128, 72)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Hud" parent="MatchUI/Control" instance=ExtResource("9_p33ol")]
+unique_name_in_owner = true
+layer = 2
+
+[node name="ActiveElixers" type="HBoxContainer" parent="MatchUI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 1.0
+offset_right = 69.0
+offset_bottom = 31.0
+grow_horizontal = 2
+pivot_offset = Vector2(75, 0)
+theme_override_constants/separation = 12
+alignment = 1
+script = ExtResource("10_gf6al")
+char_stats = ExtResource("2_tsb42")
+card_ui = ExtResource("11_7quaf")
+
+[node name="Hand" type="HBoxContainer" parent="MatchUI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -31.0
+offset_right = 68.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("10_gf6al")
+card_ui = ExtResource("12_5hiuj")
+
+[node name="ShadowHand" type="VBoxContainer" parent="MatchUI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 35.0
+offset_bottom = -6.0
+grow_vertical = 2
+theme_override_constants/separation = 1
+alignment = 1
+script = ExtResource("10_gf6al")
+card_ui = ExtResource("13_wtbkx")
+
+[node name="tooltip" parent="MatchUI/Control" instance=ExtResource("14_wuvbj")]
+visible = false
+layout_mode = 1
+offset_left = -50.0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = 13.0
+
+[node name="MatchSFX" type="Node" parent="."]
+script = ExtResource("15_2na2j")
+
+[node name="draw_audio_player" parent="MatchSFX" instance=ExtResource("16_dbuf1")]
+bus = &"sfx"
+streams = Array[AudioStream]([ExtResource("17_n851r"), ExtResource("18_d88th"), ExtResource("19_splhr"), ExtResource("20_a20hx")])
+
+[node name="play_audio_player" parent="MatchSFX" instance=ExtResource("16_dbuf1")]
+bus = &"sfx"
+streams = Array[AudioStream]([ExtResource("21_mrq37"), ExtResource("22_kdo5t"), ExtResource("23_2alfn"), ExtResource("24_ret28"), ExtResource("25_510or"), ExtResource("26_7oepi"), ExtResource("27_d4hfq"), ExtResource("28_v8fj6")])
+
+[node name="Shaker" type="Node" parent="." node_paths=PackedStringArray("target_node")]
+script = ExtResource("29_wjorx")
+target_node = NodePath("../MatchUI/Control")
+target_property = &"rotation"
+min_value = -0.5
+max_value = 0.5
+fall_off = SubResource("Curve_4vr24")
+
+[node name="Shaker2" type="Node" parent="." node_paths=PackedStringArray("target_node")]
+script = ExtResource("29_wjorx")
+target_node = NodePath("../MatchUI/Control")
+target_property = &"rotation"
+min_value = -0.5
+max_value = 0.5
+fall_off = SubResource("Curve_4vr24")
+
+[node name="TutorialScreen" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("31_oyo3c")
+
+[node name="TextureRect" type="TextureRect" parent="TutorialScreen"]
+modulate = Color(1, 1, 1, 0.713726)
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_knjbp")
+
+[node name="MarginContainer" type="MarginContainer" parent="TutorialScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="Screens" type="VBoxContainer" parent="TutorialScreen/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Welcome" type="VBoxContainer" parent="TutorialScreen/MarginContainer/Screens"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Welcome"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Welcome/Panel"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Welcome to [wave amp=15.0 freq=5.0 connected=0]Mystical Mixtures[/wave]
+
+Your goal is to craft all [wave amp=15.0 freq=5.0 connected=0][color=gold]Elixer[/color][/wave] recipes before you run out of cards
+"
+fit_content = true
+scroll_active = false
+
+[node name="Decks" type="VBoxContainer" parent="TutorialScreen/MarginContainer/Screens"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Elixer" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Decks"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Decks/Elixer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "The top row are your [wave amp=15.0 freq=5.0 connected=0][color=gold]Elixer[/color][/wave] cards, complete them with [wave amp=15.0 freq=5.0 connected=0][color=dark_green]Ingredient Cards[/color][/wave] to unlock special effects. 
+
+Complete them all, you win the game
+"
+fit_content = true
+scroll_active = false
+
+[node name="Ingredients" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Decks"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Decks/Ingredients"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Below are your  [wave amp=15.0 freq=5.0 connected=0][color=dark_green]Ingredient Cards[/color][/wave] use them on appropriate Elixirs.
+
+Playing them require 1 mana.
+"
+fit_content = true
+scroll_active = false
+
+[node name="Instructions" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Decks"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Decks/Instructions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Drag both ingredient cards to the Elixir."
+fit_content = true
+scroll_active = false
+
+[node name="Draw" type="VBoxContainer" parent="TutorialScreen/MarginContainer/Screens"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Draw" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Draw"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Draw/Draw"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "You can draw cards at the cost of 1 mana.
+
+Click the [wave][color=green]Draw button[/color][/wave]  to the right and draw."
+fit_content = true
+scroll_active = false
+
+[node name="Shadow" type="VBoxContainer" parent="TutorialScreen/MarginContainer/Screens"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Shadow" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Shadow"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Shadow/Shadow"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Sometimes you draw  [wave amp=15.0 freq=5.0 connected=0][color=rebecca_purple]Shadow Cards.[/color][/wave] They are displayed on the left and activate their effects when your turn ends.
+
+Click [wave amp=15.0 freq=5.0 connected=0][color=red]End Turn.[/color][/wave]"
+fit_content = true
+scroll_active = false
+
+[node name="Shadow_Turn" type="VBoxContainer" parent="TutorialScreen/MarginContainer/Screens"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Shadow" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Shadow_Turn"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Shadow_Turn/Shadow"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "After you turn ends, your mana will refill.
+
+Now the  [wave amp=15.0 freq=5.0 connected=0][color=rebecca_purple]Shadow Cards.[/color][/wave] get their turn"
+fit_content = true
+scroll_active = false
+
+[node name="Player_Turn_2" type="VBoxContainer" parent="TutorialScreen/MarginContainer/Screens"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Shadow" type="PanelContainer" parent="TutorialScreen/MarginContainer/Screens/Player_Turn_2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqrc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialScreen/MarginContainer/Screens/Player_Turn_2/Shadow"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "That shadow cards effect, made you skip your next draw phase! 
+
+ Use mana to  [wave amp=15.0 freq=5.0 connected=0][color=green]draw.[/color][/wave] your next card and complete the elixir."
+fit_content = true
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TutorialScreen/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SkipTutorial" parent="TutorialScreen/MarginContainer/HBoxContainer" instance=ExtResource("32_covj3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(49, 11)
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Skip Tutorial"
+
+[node name="NextButton" parent="TutorialScreen/MarginContainer/HBoxContainer" instance=ExtResource("32_covj3")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(49, 10)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Next
+"

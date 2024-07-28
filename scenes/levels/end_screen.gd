@@ -21,8 +21,13 @@ func set_defeat():
 	title_label.text = "[center]Defeat![/center]"
 	description_label.text = "[center]You Lost![/center]"
 	
+func set_tutorial():
+	title_label.text = "[center]Tutorial Complete[/center]"
+	description_label.text = "[center]Click next to start game[/center]"
+	restart_button.text = "Next Level"
+	
 func on_restart_button_pressed():
-	ScreenTransition.transition_to_scene("res://scenes/match/match_scene.tscn")
+	ScreenTransition.transition_to_scene("res://scenes/levels/match_scene.tscn")
 	
 func on_quit_button_pressed():
 	ScreenTransition.transition_to_scene("res://scenes/levels/main_menu.tscn")

@@ -39,6 +39,8 @@ func on_mouse_entered() -> void:
 	Events.card_tooltip_requested.emit(card_ui.card)
 	
 func on_mouse_exited() -> void:
+	if not is_inside_tree():
+		return
 			
 	if tween_hover and tween_hover.is_running():
 		tween_hover.kill()

@@ -20,6 +20,7 @@ func _ready():
 	end_turn_button.pressed.connect(_on_end_turn_pressed)
 	Events.player_turn_started.connect(_on_player_hand_drawn)
 	Events.elixer_completed.connect(_on_elixir_completed)
+	Events.disable_end_turn.connect(_on_disable_end_turn)
 	mana_label.pivot_offset = mana_label.size  / 2
 
 func _set_char_stats(value: CharacterStats):
@@ -81,6 +82,9 @@ func _on_player_hand_drawn() -> void:
 func _on_draw_pile_changed(count: int):
 	disabled_draw_button()
 	deck_count_label.text = "%s/%s" % [count, char_stats.starting_deck.cards.size()]
+	
+func _on_disable_end_turn(disabled: bool) -> void:
+	end_turn_button.disabled = disabled
 	
 func disabled_draw_button():
 	draw_card_button.disabled = char_stats.mana == 0 || char_stats.draw_pile.is_empty() || char_stats.hand.cards.size() >= char_stats.max_hand_size

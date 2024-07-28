@@ -30,4 +30,7 @@ func on_quit_panel_input(event: InputEvent):
 		get_tree().quit()
 		
 func _start_button_clicked() -> void:
-	ScreenTransition.transition_to_scene("res://scenes/match/match_scene.tscn")
+	if Events.skip_tutorial:
+		ScreenTransition.transition_to_scene("res://scenes/levels/match_scene.tscn")
+	else:
+		ScreenTransition.transition_to_scene("res://scenes/levels/tutorial_scene.tscn")

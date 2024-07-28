@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://dlrolkjw4tt1w"]
+
+[ext_resource type="Resource" uid="uid://5ycqtxmmcahe" path="res://resources/cards/ingredients/Philosophers_Stone.tres" id="1_xhcl2"]
+[ext_resource type="Resource" uid="uid://cakmxb1aj5upl" path="res://resources/cards/ingredients/Essence_of_Light.tres" id="4_yspmh"]
+[ext_resource type="Resource" uid="uid://doojs8suq46xu" path="res://resources/cards/ingredients/Moonstone.tres" id="5_qd6wn"]
+[ext_resource type="Resource" uid="uid://cyv1tfkn8vgjo" path="res://resources/cards/shadow/Dark_Veil.tres" id="6_gktx8"]
+[ext_resource type="Script" path="res://resources/card_pile.gd" id="11_x2d1o"]
+
+[resource]
+script = ExtResource("11_x2d1o")
+cards = Array[Resource("res://resources/card.gd")]([ExtResource("1_xhcl2"), ExtResource("4_yspmh"), ExtResource("6_gktx8"), ExtResource("5_qd6wn")])

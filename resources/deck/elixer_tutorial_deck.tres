@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=3 format=3 uid="uid://u3o0n8yiak65"]
+
+[ext_resource type="Resource" uid="uid://ivskbe08xbec" path="res://resources/cards/elixers/Elixir_of_Speed.tres" id="4_ytlgh"]
+[ext_resource type="Script" path="res://resources/card_pile.gd" id="6_36gig"]
+
+[resource]
+script = ExtResource("6_36gig")
+cards = Array[Resource("res://resources/card.gd")]([ExtResource("4_ytlgh")])

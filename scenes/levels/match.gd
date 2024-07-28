@@ -9,7 +9,7 @@ extends Node2D
 @onready var elixer_handler: Node2D = $ElixerHandler as ElixerHandler
 @onready var shadow_handler: ShadowHandler = $ShadowHandler as ShadowHandler
 @onready var shaker: Shaker = $Shaker as Shaker
-
+@export var tutorial := false
 
 const END_SCREEN = preload("res://scenes/levels/end_screen.tscn")
 func _ready() -> void:
@@ -25,6 +25,7 @@ func _ready() -> void:
 	start_match(new_stats)
 	
 func start_match(stats: CharacterStats) -> void:
+	Events.match_started.emit()
 	elixer_handler.start_battle(stats)
 	await Events.elixers_drawn
 	player_handler.start_battle(stats)
@@ -37,6 +38,8 @@ func game_over():
 func victory():
 	var end_screen_instance = END_SCREEN.instantiate()
 	add_child(end_screen_instance)
+	if tutorial:
+		end_screen_instance.set_tutorial()
 	
 func _on_effect_applied(effect: EffectBase):
 	shaker.start(.25)
