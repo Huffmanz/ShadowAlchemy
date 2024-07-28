@@ -9,6 +9,7 @@ signal all_cards_played
 func add_card_ui(new_card_ui: CardUI):
 	new_card_ui.reparent_requested.connect(_on_card_ui_reparent_requested)
 	new_card_ui.parent = self
+	add_child(new_card_ui)
 
 func add_card(card: Card) -> void:
 	var new_card_ui = card_ui.instantiate() as CardUI

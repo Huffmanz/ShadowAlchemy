@@ -28,6 +28,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "[shake rate=20.0 level=5 connected-1]sdfdfst[/shake]
 "

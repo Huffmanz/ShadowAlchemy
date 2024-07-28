@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://2uxs3poqumjd"]
+[gd_scene load_steps=30 format=3 uid="uid://2uxs3poqumjd"]
 
 [ext_resource type="Shader" path="res://shaders/dissolve.gdshader" id="1_05is8"]
 [ext_resource type="Theme" uid="uid://brjii8ffeofm5" path="res://art/theme/main_theme.tres" id="1_55wx5"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://fveptbjvg4f0" path="res://audio/cards/card-slide-6.ogg" id="14_gtrjm"]
 [ext_resource type="AudioStream" uid="uid://xrbkpy8oes5o" path="res://audio/cards/card-slide-7.ogg" id="15_dfi6h"]
 [ext_resource type="AudioStream" uid="uid://0ayjptuiemme" path="res://audio/cards/card-slide-8.ogg" id="16_sihtv"]
+[ext_resource type="Texture2D" uid="uid://ohgp5ekr3b87" path="res://art/card_back.png" id="18_f3hbo"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_xqc0h"]
 seed = -15
@@ -53,6 +54,76 @@ size = Vector2(25, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66v07"]
 size = Vector2(25, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_08ddr"]
+texture = ExtResource("18_f3hbo")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 30, 35)
+
+[sub_resource type="Animation" id="Animation_lvd81"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_71lro"]
+resource_name = "flip"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 1), Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i7a0"]
+_data = {
+"RESET": SubResource("Animation_lvd81"),
+"flip": SubResource("Animation_71lro")
+}
 
 [node name="ElixerCardUI" type="Control"]
 material = SubResource("ShaderMaterial_3d1cn")
@@ -178,3 +249,21 @@ position = Vector2(15, 35)
 [node name="hover_audio_player" parent="." instance=ExtResource("8_bafo1")]
 bus = &"sfx"
 streams = Array[AudioStream]([ExtResource("9_w87yr"), ExtResource("10_hmnft"), ExtResource("11_8mhg1"), ExtResource("12_dr5d8"), ExtResource("13_8suub"), ExtResource("14_gtrjm"), ExtResource("15_dfi6h"), ExtResource("16_sihtv")])
+
+[node name="CardBack" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(15, 18)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_08ddr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0i7a0")
+}
+autoplay = "flip"

@@ -418,13 +418,15 @@ size_flags_horizontal = 4
 unique_name_in_owner = true
 custom_minimum_size = Vector2(49, 11)
 layout_mode = 2
-theme_override_font_sizes/font_size = 6
+theme_type_variation = &"RedButton"
+theme_override_font_sizes/font_size = 8
 text = "Skip Tutorial"
 
 [node name="NextButton" parent="TutorialScreen/MarginContainer/HBoxContainer" instance=ExtResource("32_covj3")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(49, 10)
 layout_mode = 2
+theme_type_variation = &"GreenButton"
 theme_override_font_sizes/font_size = 8
 text = "Next
 "

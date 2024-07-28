@@ -88,6 +88,7 @@ func _ready() -> void:
 	drop_point_detector.area_entered.connect(_on_drop_point_detector_area_entered)
 	drop_point_detector.area_exited.connect(_on_drop_point_detector_area_exited)
 	
+	
 func _process(delta: float) -> void:
 	rotate_velocity(delta)
 	handle_shadow(delta)

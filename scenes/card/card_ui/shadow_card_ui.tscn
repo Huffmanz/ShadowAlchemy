@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bpatghakn5mtc"]
+[gd_scene load_steps=31 format=3 uid="uid://bpatghakn5mtc"]
 
 [ext_resource type="Script" path="res://scenes/card/card_ui/shadow_card_ui.gd" id="1_o7c3u"]
 [ext_resource type="Script" path="res://scenes/card/drop_point.gd" id="2_24c65"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://fveptbjvg4f0" path="res://audio/cards/card-slide-6.ogg" id="15_f7uey"]
 [ext_resource type="AudioStream" uid="uid://xrbkpy8oes5o" path="res://audio/cards/card-slide-7.ogg" id="16_nsq7g"]
 [ext_resource type="AudioStream" uid="uid://0ayjptuiemme" path="res://audio/cards/card-slide-8.ogg" id="17_j0ufj"]
+[ext_resource type="Texture2D" uid="uid://ohgp5ekr3b87" path="res://art/card_back.png" id="17_u65on"]
 
 [sub_resource type="Shader" id="Shader_uh887"]
 code = "shader_type canvas_item;
@@ -82,6 +83,76 @@ size = Vector2(25, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avokt"]
 size = Vector2(25, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kl8eo"]
+texture = ExtResource("17_u65on")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 30, 35)
+
+[sub_resource type="Animation" id="Animation_lvd81"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_71lro"]
+resource_name = "flip"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 1), Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i7a0"]
+_data = {
+"RESET": SubResource("Animation_lvd81"),
+"flip": SubResource("Animation_71lro")
+}
 
 [node name="shadow_card_ui" type="Control"]
 material = SubResource("ShaderMaterial_ynqr8")
@@ -206,3 +277,21 @@ position = Vector2(35, 18)
 [node name="hover_audio_player" parent="." instance=ExtResource("9_xs2ry")]
 bus = &"sfx"
 streams = Array[AudioStream]([ExtResource("10_74q7w"), ExtResource("11_1uqn7"), ExtResource("12_b4wm5"), ExtResource("13_xxikd"), ExtResource("14_sff7l"), ExtResource("15_f7uey"), ExtResource("16_nsq7g"), ExtResource("17_j0ufj")])
+
+[node name="CardBack" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(15, 18)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kl8eo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0i7a0")
+}
+autoplay = "flip"

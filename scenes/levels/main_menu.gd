@@ -7,9 +7,11 @@ extends CanvasLayer
 @onready var quit_game_detector: MenuDropPoint = %QuitGameDetector as MenuDropPoint
 
 @onready var hand: Hand = $Hand
-@onready var card_ui: MenuCardUI = $Hand/CardUI
+#@onready var card_ui: MenuCardUI = $Hand/CardUI
 @onready var start_panel: PanelContainer = %StartPanel
 @onready var quit_panel: PanelContainer = %QuitPanel
+const MENU_CARD_UI = preload("res://scenes/card/card_ui/menu_card_ui.tscn")
+var first := true
 
 func _ready() -> void:
 	start_button.pressed.connect(_start_button_clicked)
@@ -18,9 +20,15 @@ func _ready() -> void:
 	quit_game_detector.card_dropped.connect(get_tree().quit)
 	start_panel.gui_input.connect(on_start_panel_input)
 	quit_panel.gui_input.connect(on_quit_panel_input)
-	
-	hand.add_card_ui(card_ui)
-	
+
+
+func _process(delta: float) -> void:
+	if first:
+		first = false
+		await get_tree().create_timer(1.0).timeout
+		var card_ui = MENU_CARD_UI.instantiate()
+		hand.add_card_ui(card_ui)
+		
 func on_start_panel_input(event: InputEvent):
 	if event.is_action_pressed("left_mouse"):
 		_start_button_clicked()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3jxcjgl0uvck"]
+[gd_scene load_steps=17 format=3 uid="uid://3jxcjgl0uvck"]
 
 [ext_resource type="Script" path="res://scenes/ui/hud.gd" id="1_tdc82"]
 [ext_resource type="Script" path="res://scenes/ui/turn_ui.gd" id="2_0cmxc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://resources/effects/loss_mana_effect.gd" id="2_76s0k"]
 [ext_resource type="Script" path="res://addons/shaker/shaker.gd" id="2_lsf10"]
 [ext_resource type="Script" path="res://resources/effects/draw_card_effect.gd" id="3_g7jue"]
+[ext_resource type="Theme" uid="uid://brjii8ffeofm5" path="res://art/theme/main_theme.tres" id="4_m7kkx"]
 
 [sub_resource type="Resource" id="Resource_2pgjj"]
 script = ExtResource("2_76s0k")
@@ -20,18 +21,6 @@ description = "+1 Card"
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6n3ph"]
 bg_color = Color(0.176471, 0.176471, 0.176471, 0.470588)
 border_color = Color(0.309804, 0.560784, 0.729412, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1dckb"]
-bg_color = Color(0.0980392, 0.0980392, 0.0980392, 0.345098)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyep4"]
 font_size = 4
@@ -51,51 +40,6 @@ font_size = 6
 [sub_resource type="Curve" id="Curve_ng6qo"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2crvu"]
-bg_color = Color(0.737255, 0, 0.12549, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-shadow_size = 1
-shadow_offset = Vector2(1, 1)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j16mi"]
-bg_color = Color(0.886275, 0, 0.160784, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lctjx"]
-bg_color = Color(1, 0.572549, 0.54902, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.498039, 0.498039, 0.498039, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
-anti_aliasing = false
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_tdc82")
@@ -128,7 +72,7 @@ theme_override_constants/separation = 2
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_1dckb")
+theme = ExtResource("4_m7kkx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/DeckPanel"]
 layout_mode = 2
@@ -150,7 +94,7 @@ custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 text = "10/40"
 label_settings = SubResource("LabelSettings_pvfeu")
-horizontal_alignment = 2
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ElixirPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -158,7 +102,6 @@ custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_1dckb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ElixirPanel"]
 layout_mode = 2
@@ -188,7 +131,6 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_1dckb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ManaPanel"]
 layout_mode = 2
@@ -232,6 +174,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 focus_mode = 0
+theme_type_variation = &"GreenButton"
 theme_override_font_sizes/font_size = 6
 text = "DRAW"
 
@@ -241,12 +184,8 @@ custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 size_flags_vertical = 10
 focus_mode = 0
+theme_type_variation = &"RedButton"
 theme_override_font_sizes/font_size = 6
-theme_override_styles/normal = SubResource("StyleBoxFlat_2crvu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j16mi")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2crvu")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_lctjx")
-theme_override_styles/focus = SubResource("StyleBoxFlat_2crvu")
 text = "END"
 
 [node name="EffectSpawnLocation" type="Marker2D" parent="PanelContainer"]

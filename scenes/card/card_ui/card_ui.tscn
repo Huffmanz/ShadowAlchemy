@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cl4j4hehiutqw"]
+[gd_scene load_steps=35 format=3 uid="uid://cl4j4hehiutqw"]
 
 [ext_resource type="Theme" uid="uid://brjii8ffeofm5" path="res://art/theme/main_theme.tres" id="1_3kwul"]
 [ext_resource type="Script" path="res://scenes/card/card_ui/card_ui.gd" id="2_q3ste"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/card/effects/effect_handler.gd" id="5_qyo8q"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_base_state.gd" id="6_umwy5"]
 [ext_resource type="Texture2D" uid="uid://d11jpny4hue1a" path="res://art/icons/mandrake.png" id="6_xytlx"]
+[ext_resource type="Texture2D" uid="uid://ohgp5ekr3b87" path="res://art/card_back.png" id="7_2nykk"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_clicked_state.gd" id="7_xvlku"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_dragging_state.gd" id="8_24r58"]
 [ext_resource type="Script" path="res://scenes/card/state_machine/card_released_state.gd" id="9_24agm"]
@@ -82,8 +83,78 @@ texture_margin_right = 5.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(3, 129, 24, 7)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4lhso"]
+texture = ExtResource("7_2nykk")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(0, 0, 30, 35)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnmq5"]
 size = Vector2(19, 36)
+
+[sub_resource type="Animation" id="Animation_lvd81"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_71lro"]
+resource_name = "flip"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardBack:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 1), Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i7a0"]
+_data = {
+"RESET": SubResource("Animation_lvd81"),
+"flip": SubResource("Animation_71lro")
+}
 
 [node name="CardUI" type="Control" groups=["card_ui"]]
 material = SubResource("ShaderMaterial_5w8fx")
@@ -124,6 +195,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(15, 18)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q30up")
 
@@ -182,6 +254,18 @@ layout_mode = 0
 offset_right = 26.0
 offset_bottom = 10.0
 
+[node name="CardBack" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(15, 18)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4lhso")
+
 [node name="DropPointDetector" type="Area2D" parent="."]
 position = Vector2(15, 18)
 collision_mask = 2
@@ -219,3 +303,9 @@ position = Vector2(35, 18)
 [node name="hover_audio_player" parent="." instance=ExtResource("14_vnem5")]
 bus = &"sfx"
 streams = Array[AudioStream]([ExtResource("15_usutb"), ExtResource("16_3e4oo"), ExtResource("17_d0l8r"), ExtResource("18_duxlw"), ExtResource("19_ccg3m"), ExtResource("20_6kaip"), ExtResource("21_g1nv2"), ExtResource("22_l0s75")])
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0i7a0")
+}
+autoplay = "flip"

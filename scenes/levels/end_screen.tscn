@@ -57,6 +57,9 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
 theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "[center]Victory![/center]"
@@ -84,11 +87,13 @@ theme_override_constants/separation = 6
 unique_name_in_owner = true
 custom_minimum_size = Vector2(53, 8)
 layout_mode = 2
+theme_type_variation = &"GreenButton"
 theme_override_font_sizes/font_size = 6
 text = "Restart"
 
 [node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("3_733k2")]
 unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"RedButton"
 theme_override_font_sizes/font_size = 6
 text = "Quit to Menu"

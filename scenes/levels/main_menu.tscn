@@ -146,6 +146,7 @@ char_stats = SubResource("Resource_v6cv3")
 card_ui = ExtResource("5_vr1e1")
 
 [node name="CardUI" parent="Hand" instance=ExtResource("8_aspnf")]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
