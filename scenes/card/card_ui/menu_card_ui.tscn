@@ -95,7 +95,7 @@ region_rect = Rect2(0, 0, 30, 34.8082)
 
 [sub_resource type="LabelSettings" id="LabelSettings_evxb2"]
 line_spacing = 0.0
-font_size = 28
+font_size = 20
 shadow_size = 2
 shadow_color = Color(0.180392, 0.180392, 0.180392, 0.537255)
 shadow_offset = Vector2(2, 2)
@@ -244,12 +244,14 @@ unique_name_in_owner = true
 layout_mode = 2
 offset_left = 3.0
 offset_top = 4.0
-offset_right = 119.0
+offset_right = 100.0
 offset_bottom = 87.0
 scale = Vector2(0.35, 0.35)
-theme_override_font_sizes/font_size = 28
-text = "Umbral Elixirs"
+theme_override_font_sizes/font_size = 8
+text = "Mystic Mixtures"
 label_settings = SubResource("LabelSettings_evxb2")
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="NamePlate" type="Panel" parent="Panel"]
