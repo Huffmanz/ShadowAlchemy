@@ -235,7 +235,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
-text = "Welcome to [wave amp=15.0 freq=5.0 connected=0]Mystical Mixtures[/wave]
+text = "Welcome to [wave amp=15.0 freq=5.0 connected=0][color=purple]Mystical Mixtures[/color][/wave]
 
 Your goal is to craft all [wave amp=15.0 freq=5.0 connected=0][color=gold]Elixer[/color][/wave] recipes before you run out of cards
 "
@@ -282,7 +282,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
-text = "Below are your  [wave amp=15.0 freq=5.0 connected=0][color=dark_green]Ingredient Cards[/color][/wave] use them on appropriate Elixirs.
+text = "Below are your  [wave amp=15.0 freq=5.0 connected=0][color=dark_green]Ingredient Cards[/color][/wave] use them on appropriate  [wave amp=15.0 freq=5.0 connected=0][color=gold]Elixirs[/color][/wave].
 
 Playing them require 1 mana.
 "
@@ -302,7 +302,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 6
 bbcode_enabled = true
-text = "Drag both ingredient cards to the Elixir."
+text = "Drag both [wave amp=15.0 freq=5.0 connected=0][color=dark_green]Ingredient Cards[/color][/wave] cards to the [wave][color=gold]Elixir[/color][/wave]."
 fit_content = true
 scroll_active = false
 
